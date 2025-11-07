@@ -1,0 +1,32 @@
+/*
+Theme Name: Mi Tema Tailwind
+Theme URI: https://nunoa.dev
+Author: César Barahona
+Author URI: https://nunoa.dev
+Description: Tema personalizado con Tailwind CSS
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: nunoa
+*/
+
+
+body{
+  background-color: white;
+}
+
+/* style.css (archivo procesado por Tailwind) */
+.card-taller {
+  @apply relative min-w-[360px] h-[370px] rounded-3xl overflow-hidden
+         shadow-lg hover:shadow-xl transition-all duration-300 flex-shrink-0;
+}
+.card-taller__img {
+  @apply absolute inset-0 w-full h-full object-cover z-0;
+}
+.card-taller__grad {
+  @apply absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10;
+}
+.card-taller__body {
+  @apply absolute bottom-0 left-0 w-full z-20 text-white px-5 pb-6 flex flex-col gap-1
+         backdrop-blur-sm bg-black/25;
+}
