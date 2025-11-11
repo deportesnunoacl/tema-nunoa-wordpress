@@ -81,6 +81,86 @@ get_header();
         </div>
 
       </div>
+      <!-- SECCIÓN DE RECINTOS -->
+<section class="w-full mt-20">
+  <div class="container mx-auto max-w-6xl">
+
+    <!-- Título -->
+    <h2 class="font-gabarito font-bold text-3xl mb-3">
+      Recintos Deportivos de Ñuñoa
+    </h2>
+
+    <p class="font-roboto text-lg text-gray-600 mb-10 max-w-3xl">
+      Como Corporación Municipal de Deportes de Ñuñoa contamos con
+varios recintos deportivos entre los que están el Polideportivo de
+Ñuñoa, el Gimnasio Ñuñoa Plaza y el Club Ñuñoa. También tenemos
+canchas de fútbol, multicanchas y actividades en Juntas de Vecinos
+a través del programa Deporte en Tu Barrio y en colegios municipales
+mediante Escuelas Abiertas.
+    </p>
+
+<!-- Grid de tarjetas -->
+<div class="grid  gap-8">
+
+  <!-- Tarjeta 1 -->
+  <div class="flex flex-col md:flex-row bg-white border rounded-2xl shadow-md overflow-hidden">
+    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/polideportivo.png" 
+         alt="Polideportivo de Ñuñoa"
+         class="w-28 h-28 object-cover">
+
+    <div class="p-5 flex flex-col justify-center">
+      <h3 class="font-gabarito font-semibold text-xl text-green-600 mb-2">
+        Polideportivo de Ñuñoa
+      </h3>
+      <p class="text-sm font-roboto text-gray-700 leading-relaxed">
+        Lunes a Viernes 08:30 a 22:00<br>
+        Sábados 08:30 a 13:30 hrs<br>
+        Juan Moya Morales 1370, Ñuñoa
+      </p>
+    </div>
+  </div>
+
+  <!-- Tarjeta 2 -->
+  <div class="flex flex-col md:flex-row bg-white border rounded-2xl shadow-md overflow-hidden">
+    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/gimnasio.png" 
+         alt="Gimnasio Ñuñoa Plaza"
+         class=" w-28 h-28 object-cover">
+
+    <div class="p-5 flex flex-col justify-center">
+      <h3 class="font-gabarito font-semibold text-xl text-green-600 mb-2">
+        Gimnasio Ñuñoa Plaza
+      </h3>
+      <p class="text-sm font-roboto text-gray-700 leading-relaxed">
+        Lunes a Viernes 07:00 a 21:30 hrs<br>
+        Sábados 08:30 a 13:30 hrs<br>
+        Maratón de Sables 191, Ñuñoa
+      </p>
+    </div>
+  </div>
+
+  <!-- Tarjeta 3 -->
+  <div class="flex flex-col md:flex-row bg-white border rounded-2xl shadow-md overflow-hidden">
+    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/gimnasio.png" 
+         alt="Gimnasio Ñuñoa Plaza 2"
+         class="w-28 h-28 object-cover">
+
+    <div class="p-5 flex flex-col justify-center">
+      <h3 class="font-gabarito font-semibold text-xl text-green-600 mb-2">
+        Gimnasio Ñuñoa Plaza 2
+      </h3>
+      <p class="text-sm font-roboto text-gray-700 leading-relaxed">
+        Lunes a Viernes 07:00 a 21:30 hrs<br>
+        Sábados 08:30 a 13:30 hrs<br>
+        Morandé de Salas 131, Ñuñoa
+      </p>
+    </div>
+  </div>
+
+</div>
+
+  </div>
+</section>
+
 
     </div>
   </section>
