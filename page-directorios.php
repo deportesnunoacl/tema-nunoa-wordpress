@@ -23,26 +23,67 @@ get_header();
             </div>
       </div>
       <!-- Slider Swiper Fin -->
+<div class="container mx-auto mt-20 grid grid-cols-1 md:grid-cols-3 gap-12">
 
-      <div class="w-full grid grid-cols-3 ">
+  <!-- IZQUIERDA (1/3) -->
+  <div class="flex flex-col justify-start col-span-1">
+    <h3 class="font-gabarito font-bold text-4xl leading-tight max-w-sm">
+      Directorio Corporación Municipal de Deportes de Ñuñoa
+    </h3>
 
-        <div class="flex flex-col">
-          <h3 class="font-gabarito font-normal text-4xl max-w-96"> 
-            <strong>
-              DIRECTORIOS  DIRECTORIOS DIRECTORIOS  DIRECTORIOS
-            </strong>
-          </h3>
-          <p class="font-roboto font-light text-xl mt-6 max-w-80 text-justify">
-            <strong>Somos Ñuñoa Deportes, la Corporación Municipal de Deportes de la comuna de Ñuñoa, que es conocida por ser el centro del deporte nacional.</strong> Tenemos un gran potencial de espacios públicos y áreas verdes para desarrollar políticas que incentiven la realización de actividades físicas y deportivas, prácticas que deben acompañar de forma sistemática el fomento de un estilo de vida sana para ñuñoínos y ñuñoíñas.
-          
-Durante el año 2000, antes de la creación de la Corporación Municipal de Deportes de Ñuñoa, el área de deporte estaba radicada en la Dirección de Desarrollo Comunitario, las actividades deportivas se concentraban en 15 talleres con casi 3.000 participantes. Desde el año 2003, cuando se crea la Corporación, el crecimiento de talleres, horarios, oferta deportiva y participación comunal, es constante.
+    <p class="font-roboto text-lg text-gray-700 mt-6 max-w-sm text-justify">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus non 
+      tempor neque. Quisque cursus feugiat risus, id interdum neque tempus vel. 
+      Suspendisse tristique libero ornare leo dignissim facilisis.
+    </p>
+  </div>
 
-En la actualidad, son más de 11 mil vecinos y vecinas quienes de forma diaria practican actividades en los más de 250 talleres que impartimos. Nuestra motivación como Corporación Municipal de Deportes de Ñuñoa es continuar desarrollando planes integrales de promoción y práctica de actividad física y deporte comunal, así como el fortalecimiento del trabajo intersectorial en el ámbito comunitario, escolar y laboral, en coordinación con ministerios, servicios, Gobierno Regional, universidades, fundaciones y organizaciones sociales y deportivas.
+  <!-- DERECHA (2/3) -->
+  <div class="grid grid-cols-3 ">
 
-Ñuñoa Deportes basa su trabajo en una labor colaborativa con distintos actores y actrices del ecosistema deportivo y del tejido social de la comuna, para dar cumplimiento a las demandas ciudadanas, desarrollando nuestro quehacer en base a tres enfoques que declaramos fundamentales:
-        </div>
+    <!-- CARD 1 -->
+    <div class="flex flex-col items-center text-center">
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sichel.png"
+           class="w-28 h-28 object-cover rounded-xl shadow-md">
+      <h4 class="mt-3 font-gabarito font-semibold text-lg">Nombre 1</h4>
+      <p class="text-gray-600 text-sm">Cargo</p>
+    </div>
 
-      </div>
+    <!-- CARD 2 -->
+    <div class="flex flex-col items-center text-center">
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sichel.png"
+           class="w-28 h-28 object-cover rounded-xl shadow-md">
+      <h4 class="mt-3 font-gabarito font-semibold text-lg">Nombre 2</h4>
+      <p class="text-gray-600 text-sm">Cargo</p>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="flex flex-col items-center text-center">
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sichel.png"
+           class="w-28 h-28 object-cover rounded-xl shadow-md">
+      <h4 class="mt-3 font-gabarito font-semibold text-lg">Nombre 3</h4>
+      <p class="text-gray-600 text-sm">Cargo</p>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="flex flex-col items-center text-center">
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sichel.png"
+           class="w-28 h-28 object-cover rounded-xl shadow-md">
+      <h4 class="mt-3 font-gabarito font-semibold text-lg">Nombre 4</h4>
+      <p class="text-gray-600 text-sm">Cargo</p>
+    </div>
+
+    <!-- CARD 5 -->
+    <div class="flex flex-col items-center text-center">
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sichel.png"
+           class="w-28 h-28 object-cover rounded-xl shadow-md">
+      <h4 class="mt-3 font-gabarito font-semibold text-lg">Nombre 5</h4>
+      <p class="text-gray-600 text-sm">Cargo</p>
+    </div>
+
+  </div>
+</div>
+
 
     </div>
   </section>

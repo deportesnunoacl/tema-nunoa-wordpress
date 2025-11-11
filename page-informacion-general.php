@@ -26,14 +26,6 @@ get_header();
 
           <div class="w-full max-w-4xl mx-auto mt-10">
 
-        <p class="font-roboto font-normal text-xl text-green-600">
-          <strong>DEPORTES ÑUÑOA</strong>
-        </p>
-
-        <h3 class="font-gabarito font-bold text-4xl mt-3">
-          Corporación Municipal de Deportes de Ñuñoa
-        </h3>
-
         <p class="font-roboto font-light text-lg mt-6 text-justify leading-relaxed">
           <strong>Somos Ñuñoa Deportes, la Corporación Municipal de Deportes de la comuna de Ñuñoa, que es conocida por ser el centro del deporte nacional.</strong> Tenemos un gran potencial de espacios públicos y áreas verdes para desarrollar políticas que incentiven la realización de actividades físicas y deportivas, prácticas que deben acompañar de forma sistemática el fomento de un estilo de vida sana para ñuñoínos y ñuñoíñas.
           <br><br>
@@ -113,8 +105,8 @@ mediante Escuelas Abiertas.
         Polideportivo de Ñuñoa
       </h3>
       <p class="text-sm font-roboto text-gray-700 leading-relaxed">
-        Lunes a Viernes 08:30 a 22:00<br>
-        Sábados 08:30 a 13:30 hrs<br>
+        Lunes a Viernes 06:00 a 22:00<br>
+        Sábados 09:00 a 13:30 hrs<br>
         Juan Moya Morales 1370, Ñuñoa
       </p>
     </div>
@@ -131,9 +123,9 @@ mediante Escuelas Abiertas.
         Gimnasio Ñuñoa Plaza
       </h3>
       <p class="text-sm font-roboto text-gray-700 leading-relaxed">
-        Lunes a Viernes 07:00 a 21:30 hrs<br>
-        Sábados 08:30 a 13:30 hrs<br>
-        Maratón de Sables 191, Ñuñoa
+        Lunes a Viernes 07:00 a 21:45 hrs<br>
+        Sábados 08:00 a 12:45 hrs<br>
+        Maratón de Sables 151, Ñuñoa
       </p>
     </div>
   </div>
@@ -149,9 +141,9 @@ mediante Escuelas Abiertas.
         Gimnasio Ñuñoa Plaza 2
       </h3>
       <p class="text-sm font-roboto text-gray-700 leading-relaxed">
-        Lunes a Viernes 07:00 a 21:30 hrs<br>
-        Sábados 08:30 a 13:30 hrs<br>
-        Morandé de Salas 131, Ñuñoa
+        Lunes a Viernes 07:00 a 21:45 hrs<br>
+        Sábados 08:00 a 12:45 hrs<br>
+        Maratón de Sables 151, Ñuñoa
       </p>
     </div>
   </div>

@@ -24,7 +24,7 @@ get_header();
       </div>
       <!-- Slider Swiper Fin -->
 
-      <div class="w-full flex flex-col items-center gap-16">
+      <div class="w-full flex flex-col items-center gap-16 grid-cols-1 md:grid-cols-3 mt-16">
         <div class="flex flex-col items-center text-center max-w-3xl">
           <h3 class="font-gabarito font-normal text-4xl">
             <strong>Misión</strong>
@@ -35,12 +35,12 @@ get_header();
             a satisfacer las necesidades de esparcimiento de sus vecinos y 
             organizaciones sociales. Realizando actividades en los distintos 
             recintos, instalaciones, unidades vecinales y espacios públicos, 
-            cuyo objetivo principal es mejorar la calidad de vida de nuestros
-            vecinos y queridos habitantes de Ñuñoa.
+            cuyo objetivo principal es <strong>mejorar la calidad de vida de nuestros
+            vecinos y queridos habitantes de Ñuñoa.</strong>
           </p>
         </div>
-          <hr class="w-1/2 border-0 border-t-4 border-gray-300 my-20 mx-auto" />
-        <div class="flex flex-col items-center text-center max-w-3xl">
+          <hr class="w-1/2 border-0 border-t-4 border-gray-300 my-20 mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mt-16" />
+        <div class="flex flex-col items-center text-center max-w-3xl grid-cols-1 md:grid-cols-3 gap-12 mt-16">
           <h3 class="font-gabarito font-normal text-4xl">
             <strong>Visión</strong>
           </h3>
@@ -49,7 +49,7 @@ get_header();
             en su gestión profesional. Realizando actividades de excelencia en deporte 
             y salud sustentado en la calidad humana y profesional de sus funcionarios, 
             el gran sentido de trabajo en equipo y la variedad de su oferta e instalaciones, 
-            aspiramos a convertirnos en el principal referente deportivo de la comuna de Ñuñoa.
+            <strong>aspiramos a convertirnos en el principal referente deportivo de la comuna de Ñuñoa.</strong>
           </p>
         </div>
     </div>
