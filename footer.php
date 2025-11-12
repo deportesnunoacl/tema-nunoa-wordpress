@@ -7,7 +7,7 @@
 
 <footer class="relative w-full bg-white py-10 overflow-hidden">
   <div 
-    class="relative w-[90%] mx-auto h-[360px] rounded-3xl flex flex-col items-center justify-center text-white"
+    class="relative w-[90%] mx-auto md:h-[360px] rounded-3xl flex flex-col items-center justify-center text-white py-5 md:py-0"
     style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/bgfooter.png'); background-size: cover; background-position: center;"
   >
     <!-- Capa de oscurecimiento -->

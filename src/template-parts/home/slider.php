@@ -16,17 +16,13 @@
         <?php while ($slides->have_posts()) : $slides->the_post(); ?>
           <div class="swiper-slide relative">
             <?php if (has_post_thumbnail()) : ?>
-              <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>" class="w-full max-h-[700px] object-cover" />
+              <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>" class="w-full h-[200px] md:h-[700px] md:max-h-[700px] object-cover" />
             <?php endif; ?>
 
            
           </div>
         <?php endwhile; wp_reset_postdata(); ?>
       </div>
-
-      <!-- Controles -->
-      <div class="swiper-button-next text-white"></div>
-      <div class="swiper-button-prev text-white"></div>
     </div>
     <?php else : ?>
       <p class="text-gray-600 text-center py-10">No hay slides disponibles aún.</p>

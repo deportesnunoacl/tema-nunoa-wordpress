@@ -1,3 +1,133 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.prose img {
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.prose ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.prose strong {
+  color: #111827;
+}
+
+/* ==========================================================
+   🎨 Galería Gutenberg personalizada (grilla de 5 columnas)
+   ========================================================== */
+.wp-block-gallery {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem; /* espacio entre imágenes */
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.wp-block-gallery.has-nested-images {
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  gap: 1rem !important;
+}
+
+.wp-block-gallery figure.wp-block-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wp-block-gallery figure.wp-block-image:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.wp-block-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.wp-block-gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* 📱 Responsive */
+@media (max-width: 1024px) {
+  .wp-block-gallery,
+  .wp-block-gallery.has-nested-images {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .wp-block-gallery,
+  .wp-block-gallery.has-nested-images {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* 🎨 Galería Gutenberg en grilla */
+.wp-block-gallery,
+.wp-block-gallery.has-nested-images {
+  display: grid !important;
+  gap: 1rem !important;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  grid-template-columns: repeat(5, minmax(0, 1fr)); /* 5 columnas */
+}
+
+/* Cada item de galería */
+.wp-block-gallery figure.wp-block-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  /* 👇 define una altura razonable usando aspect-ratio */
+  aspect-ratio: 4 / 3;
+}
+
+/* Imagen dentro */
+.wp-block-gallery img {
+  width: 100%;
+  height: 100%;          /* ahora SÍ tiene sentido porque el figure ya tiene altura */
+  object-fit: cover;
+  border-radius: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.wp-block-gallery figure.wp-block-image:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.wp-block-gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* 📱 Responsive */
+@media (max-width: 1024px) {
+  .wp-block-gallery,
+  .wp-block-gallery.has-nested-images {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .wp-block-gallery,
+  .wp-block-gallery.has-nested-images {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+.wp-block-image.size-large {
+    width: 100% !important;
+}

@@ -102,6 +102,105 @@ add_action('wp_enqueue_scripts', 'nunoa_enqueue_faq_script');
 
 
 
+// ==========================================================
+// 💡 GLightbox para galería de noticias
+// ==========================================================
+function enqueue_glightbox_assets() {
+  wp_enqueue_style('glightbox-css', 'https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css', [], null);
+  wp_enqueue_script('glightbox-js', 'https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js', [], null, true);
+
+  // Script de inicialización
+  wp_add_inline_script('glightbox-js', "
+    document.addEventListener('DOMContentLoaded', function() {
+      const lightbox = GLightbox({
+        selector: '.glightbox',
+        touchNavigation: true,
+        loop: true,
+        closeOnOutsideClick: true
+      });
+    });
+  ");
+}
+add_action('wp_enqueue_scripts', 'enqueue_glightbox_assets');
+
+
+// ==========================================================
+// 🖼️ Meta Box para galería de imágenes (sin ACF)
+// ==========================================================
+function nunoa_add_gallery_metabox() {
+  add_meta_box(
+    'nunoa_gallery_metabox',
+    'Galería de imágenes',
+    'nunoa_gallery_metabox_html',
+    'post',
+    'normal',
+    'default'
+  );
+}
+add_action('add_meta_boxes', 'nunoa_add_gallery_metabox');
+
+function nunoa_gallery_metabox_html($post) {
+  $gallery = get_post_meta($post->ID, '_nunoa_gallery', true);
+  ?>
+  <div id="nunoa-gallery-wrapper">
+    <p><button type="button" class="button" id="add-gallery-images">Agregar imágenes</button></p>
+    <ul id="nunoa-gallery-list" style="margin-top:10px;display:flex;flex-wrap:wrap;gap:10px;">
+      <?php if (!empty($gallery)) :
+        $ids = explode(',', $gallery);
+        foreach ($ids as $id) :
+          $img = wp_get_attachment_image($id, 'thumbnail');
+          echo "<li style='list-style:none;'>$img</li>";
+        endforeach;
+      endif; ?>
+    </ul>
+    <input type="hidden" name="nunoa_gallery" id="nunoa_gallery" value="<?php echo esc_attr($gallery); ?>">
+  </div>
+
+  <script>
+    jQuery(document).ready(function($){
+      const frame = wp.media({ multiple: true });
+      $('#add-gallery-images').on('click', function(e){
+        e.preventDefault();
+        frame.open();
+      });
+      frame.on('select', function(){
+        const attachments = frame.state().get('selection').map(a => a.id);
+        $('#nunoa_gallery').val(attachments.join(','));
+        location.reload();
+      });
+    });
+  </script>
+  <?php
+}
+
+function nunoa_save_gallery_meta($post_id) {
+  if (isset($_POST['nunoa_gallery'])) {
+    update_post_meta($post_id, '_nunoa_gallery', sanitize_text_field($_POST['nunoa_gallery']));
+  }
+}
+add_action('save_post', 'nunoa_save_gallery_meta');
+
+// ==========================================================
+// 🔁 Vista previa en vivo
+// ==========================================================
+function nunoa_customizer_live_preview() {
+  wp_enqueue_script(
+    'nunoa-customizer-live',
+    get_template_directory_uri() . '/assets/js/customizer-live.js',
+    ['jquery', 'customize-preview'],
+    null,
+    true
+  );
+}
+add_action('customize_preview_init', 'nunoa_customizer_live_preview');
+
+// ==========================================================
+// 🧠 Debug para confirmar carga del Customizer
+// ==========================================================
+add_action('customize_register', function() {
+  error_log('🎯 Customize_register se ejecutó correctamente');
+});
+
 
 
 // ==========================================================
@@ -110,4 +209,7 @@ add_action('wp_enqueue_scripts', 'nunoa_enqueue_faq_script');
 require_once get_template_directory() . '/inc/header/class-tailwind-navwalker.php';
 require_once get_template_directory() . '/inc/custom-post-types/Recintos.php';
 require_once get_template_directory() . '/inc/custom-post-types/Slider.php';
+// CUSTOMIZER
 require_once get_template_directory() . '/inc/customizer/offer/offer-customizer.php';
+require_once get_template_directory() . '/inc/customizer/noticias/noticias-customizer.php';
+

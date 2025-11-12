@@ -59,23 +59,3 @@ function nunoa_customizer_hero($wp_customize) {
 }
 add_action('customize_register', 'nunoa_customizer_hero', 20);
 
-// ==========================================================
-// 🔁 Vista previa en vivo
-// ==========================================================
-function nunoa_customizer_live_preview() {
-  wp_enqueue_script(
-    'nunoa-customizer-live',
-    get_template_directory_uri() . '/assets/js/customizer-live.js',
-    ['jquery', 'customize-preview'],
-    null,
-    true
-  );
-}
-add_action('customize_preview_init', 'nunoa_customizer_live_preview');
-
-// ==========================================================
-// 🧠 Debug para confirmar carga del Customizer
-// ==========================================================
-add_action('customize_register', function() {
-  error_log('🎯 Customize_register se ejecutó correctamente');
-});

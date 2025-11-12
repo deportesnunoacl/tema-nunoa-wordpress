@@ -30,3 +30,17 @@ body{
   @apply absolute bottom-0 left-0 w-full z-20 text-white px-5 pb-6 flex flex-col gap-1
          backdrop-blur-sm bg-black/25;
 }
+
+.prose img {
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.prose ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.prose strong {
+  color: #111827;
+}

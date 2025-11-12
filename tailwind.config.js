@@ -17,6 +17,8 @@ module.exports = {
         gabarito: ['Gabarito', 'sans-serif'],
       },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
   }
 };
