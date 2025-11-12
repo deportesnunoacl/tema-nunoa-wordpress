@@ -23,7 +23,7 @@ get_header();
             </div>
       </div>
       <!-- Slider Swiper Fin -->
-<div class="container mx-auto mt-20 grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="container mx-auto mt-20 grid grid-cols-2 md:grid-cols-1 gap-12 w-full px-4 sm:px-6 lg:px-8">
 
   <!-- IZQUIERDA (1/3) -->
   <div class="flex flex-col justify-start col-span-1">
@@ -38,50 +38,64 @@ get_header();
     </p>
   </div>
 
-  <!-- DERECHA (2/3) -->
-  <div class="grid grid-cols-3 ">
+<!-- DERECHA (2/3) -->
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
 
-    <!-- CARD 1 -->
-    <div class="flex flex-col items-center text-center">
+  <!-- CARD 1 -->
+  <div class="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition-all duration-300 border border-gray-100 transform hover:-translate-y-1">
+    <div class="w-32 h-32 rounded-full overflow-hidden shadow-md mb-4 border-4 border-blue-100">
       <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sebass.png"
-           class="w-28 h-28 object-cover rounded-xl shadow-md">
-      <h4 class="mt-3 font-gabarito font-semibold text-lg">Sebastián Sichel</h4>
-      <p class="text-gray-600 text-sm">Presidente</p>
+           class="w-full h-full object-cover"
+           alt="Sebastián Sichel">
     </div>
-
-    <!-- CARD 2 -->
-    <div class="flex flex-col items-center text-center">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/kareng.png"
-           class="w-28 h-28 object-cover rounded-xl shadow-md">
-      <h4 class="mt-3 font-gabarito font-semibold text-lg">Karen Gallardo</h4>
-      <p class="text-gray-600 text-sm">Directora</p>
-    </div>
-
-    <!-- CARD 3 -->
-    <div class="flex flex-col items-center text-center">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/pedrol.png"
-           class="w-28 h-28 object-cover rounded-xl shadow-md">
-      <h4 class="mt-3 font-gabarito font-semibold text-lg">Pedro Lira</h4>
-      <p class="text-gray-600 text-sm">Cargo</p>
-    </div>
-
-    <!-- CARD 4 -->
-    <div class="flex flex-col items-center text-center">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/cristiand.png"
-           class="w-28 h-28 object-cover rounded-xl shadow-md">
-      <h4 class="mt-3 font-gabarito font-semibold text-lg">Cristian Dettoni</h4>
-      <p class="text-gray-600 text-sm">Cargo</p>
-    </div>
-
-    <!-- CARD 5 -->
-    <div class="flex flex-col items-center text-center">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/elizardov.png"
-           class="w-28 h-28 object-cover rounded-xl shadow-md">
-      <h4 class="mt-3 font-gabarito font-semibold text-lg">Elizardo Vera</h4>
-      <p class="text-gray-600 text-sm">Cargo</p>
-    </div>
-
+    <h4 class="font-gabarito font-bold text-xl text-gray-800 mb-2">Sebastián Sichel</h4>
+    <p class="text-blue-600 font-semibold text-lg bg-blue-50 px-4 py-1 rounded-full">Presidente</p>
   </div>
+
+  <!-- CARD 2 -->
+  <div class="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition-all duration-300 border border-gray-100 transform hover:-translate-y-1">
+    <div class="w-32 h-32 rounded-full overflow-hidden shadow-md mb-4 border-4 border-blue-100">
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/kareng.png"
+           class="w-full h-full object-cover"
+           alt="Karen Gallardo">
+    </div>
+    <h4 class="font-gabarito font-bold text-xl text-gray-800 mb-2">Karen Gallardo</h4>
+    <p class="text-blue-600 font-semibold text-lg bg-blue-50 px-4 py-1 rounded-full">Directora</p>
+  </div>
+
+  <!-- CARD 3 -->
+  <div class="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition-all duration-300 border border-gray-100 transform hover:-translate-y-1">
+    <div class="w-32 h-32 rounded-full overflow-hidden shadow-md mb-4 border-4 border-blue-100">
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/pedrol.png"
+           class="w-full h-full object-cover"
+           alt="Pedro Lira">
+    </div>
+    <h4 class="font-gabarito font-bold text-xl text-gray-800 mb-2">Pedro Lira</h4>
+    <p class="text-blue-600 font-semibold text-lg bg-blue-50 px-4 py-1 rounded-full">Director</p>
+  </div>
+
+  <!-- CARD 4 -->
+  <div class="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition-all duration-300 border border-gray-100 transform hover:-translate-y-1">
+    <div class="w-32 h-32 rounded-full overflow-hidden shadow-md mb-4 border-4 border-blue-100">
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/cristiand.png"
+           class="w-full h-full object-cover"
+           alt="Cristian Dettoni">
+    </div>
+    <h4 class="font-gabarito font-bold text-xl text-gray-800 mb-2">Cristian Dettoni</h4>
+    <p class="text-blue-600 font-semibold text-lg bg-blue-50 px-4 py-1 rounded-full">Director</p>
+  </div>
+
+  <!-- CARD 5 -->
+  <div class="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition-all duration-300 border border-gray-100 transform hover:-translate-y-1">
+    <div class="w-32 h-32 rounded-full overflow-hidden shadow-md mb-4 border-4 border-blue-100">
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/elizardov.png"
+           class="w-full h-full object-cover"
+           alt="Elizardo Vera">
+    </div>
+    <h4 class="font-gabarito font-bold text-xl text-gray-800 mb-2">Elizardo Vera</h4>
+    <p class="text-blue-600 font-semibold text-lg bg-blue-50 px-4 py-1 rounded-full">Director</p>
+  </div>
+
 </div>
 
 
