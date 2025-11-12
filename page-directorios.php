@@ -43,41 +43,41 @@ get_header();
 
     <!-- CARD 1 -->
     <div class="flex flex-col items-center text-center">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sichel.png"
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sebass.png"
            class="w-28 h-28 object-cover rounded-xl shadow-md">
-      <h4 class="mt-3 font-gabarito font-semibold text-lg">Nombre 1</h4>
-      <p class="text-gray-600 text-sm">Cargo</p>
+      <h4 class="mt-3 font-gabarito font-semibold text-lg">Sebastián Sichel</h4>
+      <p class="text-gray-600 text-sm">Presidente</p>
     </div>
 
     <!-- CARD 2 -->
     <div class="flex flex-col items-center text-center">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sichel.png"
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/kareng.png"
            class="w-28 h-28 object-cover rounded-xl shadow-md">
-      <h4 class="mt-3 font-gabarito font-semibold text-lg">Nombre 2</h4>
-      <p class="text-gray-600 text-sm">Cargo</p>
+      <h4 class="mt-3 font-gabarito font-semibold text-lg">Karen Gallardo</h4>
+      <p class="text-gray-600 text-sm">Directora</p>
     </div>
 
     <!-- CARD 3 -->
     <div class="flex flex-col items-center text-center">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sichel.png"
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/pedrol.png"
            class="w-28 h-28 object-cover rounded-xl shadow-md">
-      <h4 class="mt-3 font-gabarito font-semibold text-lg">Nombre 3</h4>
+      <h4 class="mt-3 font-gabarito font-semibold text-lg">Pedro Lira</h4>
       <p class="text-gray-600 text-sm">Cargo</p>
     </div>
 
     <!-- CARD 4 -->
     <div class="flex flex-col items-center text-center">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sichel.png"
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/cristiand.png"
            class="w-28 h-28 object-cover rounded-xl shadow-md">
-      <h4 class="mt-3 font-gabarito font-semibold text-lg">Nombre 4</h4>
+      <h4 class="mt-3 font-gabarito font-semibold text-lg">Cristian Dettoni</h4>
       <p class="text-gray-600 text-sm">Cargo</p>
     </div>
 
     <!-- CARD 5 -->
     <div class="flex flex-col items-center text-center">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sichel.png"
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/elizardov.png"
            class="w-28 h-28 object-cover rounded-xl shadow-md">
-      <h4 class="mt-3 font-gabarito font-semibold text-lg">Nombre 5</h4>
+      <h4 class="mt-3 font-gabarito font-semibold text-lg">Elizardo Vera</h4>
       <p class="text-gray-600 text-sm">Cargo</p>
     </div>
 
