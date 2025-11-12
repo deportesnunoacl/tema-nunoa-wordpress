@@ -12,12 +12,12 @@ get_header();
     <div class="container mx-auto w-full py-20 flex flex-col  items-center gap-10">
       <!-- Slider Swiper -->
       <div class="w-full relative">
-        <div class="swiper sobre-nosotros-swiper rounded-3xl overflow-hidden">
+        <div class="swiper sobre-nosotros-swiper overflow-hidden">
           <div class="swiper-wrapper">
 
             <!-- Slide 1 -->
             <div class="swiper-slide">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/Slider1.png" 
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/headermision.png" 
                    alt="Historia Ñuñoa Deportes" 
                    class="w-full h-[400px] object-cover" />
             </div>
