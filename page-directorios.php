@@ -1,105 +1,219 @@
 <?php
 /**
- * Template para la página Sobre Nosotros
+ * Template: Directorio
  * URL esperada: /directorios
  */
 get_header();
 ?>
 
-<main class="w-full bg-white">
-  <!-- Hero -->
-  <section class="w-full">
-    <div class="container mx-auto w-full py-20 flex flex-col  items-center gap-10">
-      <!-- Slider Swiper -->
-      <div class="w-full relative">
-        <div class="swiper sobre-nosotros-swiper overflow-hidden">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/img/headerdirectorio.png" 
-                   alt="Historia Ñuñoa Deportes" 
-                   class="w-full h-[400px] object-cover" />
-            </div>
-      </div>
-      <!-- Slider Swiper Fin -->
-<div class="container mx-auto mt-20 grid grid-cols-2 md:grid-cols-1 gap-12 w-full px-4 sm:px-6 lg:px-8">
+<style>
+/* ========== HERO INSTITUCIONAL (como Noticias / Misión & Visión) ========== */
+.directorio-hero {
+  position: relative;
+  height: 320px;
+  overflow: hidden;
+  color: #fff;
+}
 
-  <!-- IZQUIERDA (1/3) -->
-  <div class="flex flex-col justify-start col-span-1">
-    <h3 class="font-gabarito font-bold text-4xl leading-tight max-w-sm">
-      Directorio Corporación Municipal de Deportes de Ñuñoa
-    </h3>
+.directorio-hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
 
-    <p class="font-roboto text-lg text-gray-700 mt-6 max-w-sm text-justify">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus non 
-      tempor neque. Quisque cursus feugiat risus, id interdum neque tempus vel. 
-      Suspendisse tristique libero ornare leo dignissim facilisis.
+.directorio-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(0, 63, 46, 0.92), rgba(61, 174, 106, 0.88));
+  z-index: 1;
+}
+
+.directorio-hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.directorio-kicker {
+  text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 0.18em;
+  opacity: 0.75;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.directorio-title {
+  font-family: "Gabarito", sans-serif;
+  font-size: clamp(34px, 4vw, 46px);
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+
+.directorio-subtitle {
+  font-family: "Roboto", sans-serif;
+  max-width: 620px;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+/* ========== SECCIÓN DIRECTORIO ========== */
+
+.directorio-wrapper {
+  max-width: 1150px;
+  margin: 60px auto;
+  padding: 0 20px 80px;
+}
+
+.directorio-text-block {
+  max-width: 650px;
+  margin-bottom: 50px;
+}
+
+.directorio-text-block h3 {
+  font-family: "Gabarito", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.directorio-text-block p {
+  font-family: "Roboto", sans-serif;
+  font-size: 17px;
+  color: #444;
+  line-height: 1.55;
+}
+
+/* ========== TARJETAS ========== */
+.directorio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+.directorio-card {
+  background: #fff;
+  border-radius: 22px;
+  padding: 28px 20px;
+  text-align: center;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+  transition: all 0.25s ease;
+  border: 1px solid #f2f2f2;
+      display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.directorio-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+}
+
+.directorio-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #dff3e7;
+  margin-bottom: 14px;
+}
+
+.directorio-card h4 {
+  font-family: "Gabarito", sans-serif;
+  font-size: 20px;
+  margin: 0 0 6px;
+}
+
+.directorio-card .role {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a7f5a;
+  background: #e6f5ef;
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 999px;
+}
+</style>
+
+<main class="bg-white">
+
+<!-- HERO -->
+<section class="directorio-hero">
+ 
+
+  <div class="directorio-hero-inner">
+    <div class="directorio-kicker">Corporación Municipal de Deportes</div>
+
+    <h1 class="directorio-title">Directorio & Administración</h1>
+
+    <p class="directorio-subtitle">
+      Conoce al equipo que lidera y guía el desarrollo del deporte en Ñuñoa.
+    </p>
+  </div>
+</section>
+
+<!-- CONTENIDO -->
+<section class="directorio-wrapper">
+
+  <!-- Texto introductorio -->
+  <div class="directorio-text-block">
+    <h3>Directorio Corporación Municipal de Deportes de Ñuñoa</h3>
+    <p>
+      Nuestro directorio está conformado por líderes comprometidos con el desarrollo deportivo,
+      la inclusión y el bienestar de la comunidad. Cada integrante aporta su experiencia para
+      impulsar el crecimiento de Ñuñoa Deportes.
     </p>
   </div>
 
-<!-- DERECHA (2/3) -->
-<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+  <!-- GRID DIRECTORIO -->
+  <div class="directorio-grid">
 
-  <!-- CARD 1 -->
-  <div class="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition-all duration-300 border border-gray-100 transform hover:-translate-y-1">
-    <div class="w-32 h-32 rounded-full overflow-hidden shadow-md mb-4 border-4 border-blue-100">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sebass.png"
-           class="w-full h-full object-cover"
-           alt="Sebastián Sichel">
+    <!-- Card -->
+    <div class="directorio-card">
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sebass.png" alt="Sebastián Sichel">
+      <h4>Sebastián Sichel</h4>
+      <span class="role">Presidente</span>
     </div>
-    <h4 class="font-gabarito font-bold text-xl text-gray-800 mb-2">Sebastián Sichel</h4>
-    <p class="text-blue-600 font-semibold text-lg bg-blue-50 px-4 py-1 rounded-full">Presidente</p>
+
+    <div class="directorio-card">
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/kareng.png" alt="Karen Gallardo">
+      <h4>Karen Gallardo</h4>
+      <span class="role">Directora</span>
+    </div>
+
+    <div class="directorio-card">
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/pedrol.png" alt="Pedro Lira">
+      <h4>Pedro Lira</h4>
+      <span class="role">Director</span>
+    </div>
+
+    <div class="directorio-card">
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/cristiand.png" alt="Cristian Dettoni">
+      <h4>Cristian Dettoni</h4>
+      <span class="role">Director</span>
+    </div>
+
+    <div class="directorio-card">
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/elizardov.png" alt="Elizardo Vera">
+      <h4>Elizardo Vera</h4>
+      <span class="role">Director</span>
+    </div>
+
   </div>
+</section>
 
-  <!-- CARD 2 -->
-  <div class="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition-all duration-300 border border-gray-100 transform hover:-translate-y-1">
-    <div class="w-32 h-32 rounded-full overflow-hidden shadow-md mb-4 border-4 border-blue-100">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/kareng.png"
-           class="w-full h-full object-cover"
-           alt="Karen Gallardo">
-    </div>
-    <h4 class="font-gabarito font-bold text-xl text-gray-800 mb-2">Karen Gallardo</h4>
-    <p class="text-blue-600 font-semibold text-lg bg-blue-50 px-4 py-1 rounded-full">Directora</p>
-  </div>
-
-  <!-- CARD 3 -->
-  <div class="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition-all duration-300 border border-gray-100 transform hover:-translate-y-1">
-    <div class="w-32 h-32 rounded-full overflow-hidden shadow-md mb-4 border-4 border-blue-100">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/pedrol.png"
-           class="w-full h-full object-cover"
-           alt="Pedro Lira">
-    </div>
-    <h4 class="font-gabarito font-bold text-xl text-gray-800 mb-2">Pedro Lira</h4>
-    <p class="text-blue-600 font-semibold text-lg bg-blue-50 px-4 py-1 rounded-full">Director</p>
-  </div>
-
-  <!-- CARD 4 -->
-  <div class="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition-all duration-300 border border-gray-100 transform hover:-translate-y-1">
-    <div class="w-32 h-32 rounded-full overflow-hidden shadow-md mb-4 border-4 border-blue-100">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/cristiand.png"
-           class="w-full h-full object-cover"
-           alt="Cristian Dettoni">
-    </div>
-    <h4 class="font-gabarito font-bold text-xl text-gray-800 mb-2">Cristian Dettoni</h4>
-    <p class="text-blue-600 font-semibold text-lg bg-blue-50 px-4 py-1 rounded-full">Director</p>
-  </div>
-
-  <!-- CARD 5 -->
-  <div class="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition-all duration-300 border border-gray-100 transform hover:-translate-y-1">
-    <div class="w-32 h-32 rounded-full overflow-hidden shadow-md mb-4 border-4 border-blue-100">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/elizardov.png"
-           class="w-full h-full object-cover"
-           alt="Elizardo Vera">
-    </div>
-    <h4 class="font-gabarito font-bold text-xl text-gray-800 mb-2">Elizardo Vera</h4>
-    <p class="text-blue-600 font-semibold text-lg bg-blue-50 px-4 py-1 rounded-full">Director</p>
-  </div>
-
-</div>
-
-
-    </div>
-  </section>
 </main>
 
-<?php
-get_footer();
+<?php get_footer(); ?>
