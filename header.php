@@ -14,7 +14,7 @@
 
   <!-- TOP BAR (SOLO DESKTOP) -->
   <div class="top-bar">
-    <div class="container links">
+    <div class="container w-full mx-auto links">
       <a href="#">Plataforma<br><strong>Ley del lobby</strong></a>
       <a href="#">Transparencia Activa<br><strong>Ley de Transparencia</strong></a>
       <a href="#">Solicitud de información<br><strong>Ley de Transparencia</strong></a>
@@ -23,7 +23,7 @@
   </div>
 
   <!-- MAIN HEADER -->
-  <div class="container header-main">
+  <div class="container w-full mx-auto header-main">
 
     <!-- LOGO -->
     <div class="header-logo">
@@ -77,12 +77,6 @@
 ============================================================= -->
 <style>
 
-/* ---------------------- CONTAINER ---------------------- */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
 
 /* ---------------------- TOP BAR ---------------------- */
 .top-bar {
