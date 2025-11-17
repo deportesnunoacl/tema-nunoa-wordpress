@@ -57,12 +57,14 @@ get_header();
   color: #e9f7ef;
 }
 
+
 /* ===================== TEXTO PRINCIPAL ===================== */
 .info-wrapper {
   max-width: 1100px;
   margin: 60px auto;
   padding: 0 20px;
 }
+
 
 
 
