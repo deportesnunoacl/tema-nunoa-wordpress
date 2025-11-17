@@ -2,13 +2,8 @@
 // ==========================================================
 // 🧩 FORZAR PERSONALIZADOR CLÁSICO Y DESACTIVAR EDITOR DE BLOQUES
 // ==========================================================
-add_filter('should_load_block_editor_scripts_and_styles', '__return_true', 10);
-add_filter('use_block_editor_for_post', '__return_true', 10);
-add_filter('use_block_editor_for_page', '__return_true', 10);
 
-add_action('after_setup_theme', function() {
-  add_theme_support('post-thumbnails', array('slider'));
-});
+add_theme_support('post-thumbnails');
 
 add_action('admin_menu', function() {
     global $submenu;

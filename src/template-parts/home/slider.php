@@ -16,7 +16,7 @@
         <?php while ($slides->have_posts()) : $slides->the_post(); ?>
           <div class="swiper-slide relative">
             <?php if (has_post_thumbnail()) : ?>
-              <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>" class="w-full h-[200px] md:h-[700px] md:max-h-[700px] object-cover" />
+              <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>" class="w-full h-[200px] md:h-[700px] md:max-h-[700px] object-contain" />
             <?php endif; ?>
 
            
