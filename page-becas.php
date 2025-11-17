@@ -355,306 +355,43 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="nunoa-mv-cards">
 
       <!-- Primeras 10 cards (siempre visibles) -->
-      <article class="nunoa-mv-card">
-        <div class="nunoa-mv-icon">1</div>
-        <div>
-          <header class="nunoa-mv-card-header">
-            <span class="nunoa-mv-pill">Beca Sportlife 2025</span>
-            <h3 class="nunoa-mv-card-title">Gabriela Bravali</h3>
-          </header>
-        </div>
-      </article>
+<?php
+$args = array(
+    'post_type' => 'beneficiario',
+    'posts_per_page' => -1,
+    'orderby' => 'meta_value_num',
+    'meta_key' => '_beneficiario_numero',
+    'order' => 'ASC'
+);
 
-      <article class="nunoa-mv-card">
-        <div class="nunoa-mv-icon">2</div>
-        <div>
-          <header class="nunoa-mv-card-header">
-            <span class="nunoa-mv-pill">Beca Sportlife 2025</span>
-            <h3 class="nunoa-mv-card-title">Juan Arancibia</h3>
-          </header>
-        </div>
-      </article>
+$query = new WP_Query($args);
 
-      <article class="nunoa-mv-card">
-        <div class="nunoa-mv-icon">3</div>
-        <div>
-          <header class="nunoa-mv-card-header">
-            <span class="nunoa-mv-pill">Beca Sportlife 2025</span>
-            <h3 class="nunoa-mv-card-title">Francisca Esveile</h3>
-          </header>
-        </div>
-      </article>
+if ($query->have_posts()):
+    $index = 0;
+    while ($query->have_posts()): $query->the_post();
+        $index++;
+        $nombre = get_the_title();
+        $numero = get_post_meta(get_the_ID(), '_beneficiario_numero', true);
 
-      <article class="nunoa-mv-card">
-        <div class="nunoa-mv-icon">4</div>
+        // desde el 11 en adelante son "ver más"
+        $extra_class = ($index > 10) ? 'nunoa-mv-card-additional' : '';
+?>
+    <article class="nunoa-mv-card <?php echo $extra_class; ?>">
+        <div class="nunoa-mv-icon"><?php echo esc_html($numero); ?></div>
         <div>
-          <header class="nunoa-mv-card-header">
-            <span class="nunoa-mv-pill">Beca Sportlife 2025</span>
-            <h3 class="nunoa-mv-card-title">Katherine Sanhueza</h3>
-          </header>
+            <header class="nunoa-mv-card-header">
+                <span class="nunoa-mv-pill">Beca Sportlife 2025</span>
+                <h3 class="nunoa-mv-card-title"><?php echo esc_html($nombre); ?></h3>
+            </header>
         </div>
-      </article>
+    </article>
 
-      <article class="nunoa-mv-card">
-        <div class="nunoa-mv-icon">5</div>
-        <div>
-          <header class="nunoa-mv-card-header">
-            <span class="nunoa-mv-pill">Beca Sportlife 2025</span>
-            <h3 class="nunoa-mv-card-title">Patricia Gutiérrez</h3>
-          </header>
-        </div>
-      </article>
+<?php
+    endwhile;
+endif;
+wp_reset_postdata();
+?>
 
-      <article class="nunoa-mv-card">
-        <div class="nunoa-mv-icon">6</div>
-        <div>
-          <header class="nunoa-mv-card-header">
-            <span class="nunoa-mv-pill">Beca Sportlife 2025</span>
-            <h3 class="nunoa-mv-card-title">Gsungming Mamani</h3>
-          </header>
-        </div>
-      </article>
-
-      <article class="nunoa-mv-card">
-        <div class="nunoa-mv-icon">7</div>
-        <div>
-          <header class="nunoa-mv-card-header">
-            <span class="nunoa-mv-pill">Beca Sportlife 2025</span>
-            <h3 class="nunoa-mv-card-title">Rocío Mardones</h3>
-          </header>
-        </div>
-      </article>
-
-      <article class="nunoa-mv-card">
-        <div class="nunoa-mv-icon">8</div>
-        <div>
-          <header class="nunoa-mv-card-header">
-            <span class="nunoa-mv-pill">Beca Sportlife 2025</span>
-            <h3 class="nunoa-mv-card-title">Antonella Silva</h3>
-          </header>
-        </div>
-      </article>
-
-      <article class="nunoa-mv-card">
-        <div class="nunoa-mv-icon">9</div>
-        <div>
-          <header class="nunoa-mv-card-header">
-            <span class="nunoa-mv-pill">Beca Sportlife 2025</span>
-            <h3 class="nunoa-mv-card-title">Karen Corvalán</h3>
-          </header>
-        </div>
-      </article>
-
-      <article class="nunoa-mv-card">
-        <div class="nunoa-mv-icon">10</div>
-        <div>
-          <header class="nunoa-mv-card-header">
-            <span class="nunoa-mv-pill">Beca Sportlife 2025</span>
-            <h3 class="nunoa-mv-card-title">María Mejías</h3>
-          </header>
-        </div>
-      </article>
-
-      <!-- Cards 11-30 (ocultas inicialmente) -->
-      <article class="nunoa-mv-card nunoa-mv-card-additional">
-        <div class="nunoa-mv-icon">11</div>
-        <div>
-          <header class="nunoa-mv-card-header">
-            <span class="nunoa-mv-pill">Beca Sportlife 2025</span>
-            <h3 class="nunoa-mv-card-title">Valeria Villagran</h3>
-          </header>
-        </div>
-      </article>      
-
-      <article class="nunoa-mv-card nunoa-mv-card-additional">
-        <div class="nunoa-mv-icon">12</div>
-        <div>
-          <header class="nunoa-mv-card-header">
-            <span class="nunoa-mv-pill">Beca Sportlife 2025</span>
-            <h3 class="nunoa-mv-card-title">Verónica Cornejo</h3>
-          </header>
-        </div>
-      </article>
-      
-      <article class="nunoa-mv-card nunoa-mv-card-additional">
-        <div class="nunoa-mv-icon">13</div>
-        <div>
-          <header class="nunoa-mv-card-header">
-            <span class="nunoa-mv-pill">Beca Sportlife 2025</span>
-            <h3 class="nunoa-mv-card-title">Ignacia Erpel</h3>
-          </header>
-        </div>
-      </article>
-      
-      <article class="nunoa-mv-card nunoa-mv-card-additional">
-        <div class="nunoa-mv-icon">14</div>
-        <div>
-          <header class="nunoa-mv-card-header">
-            <span class="nunoa-mv-pill">Beca Sportlife 2025</span>
-            <h3 class="nunoa-mv-card-title">Caroline Currie</h3>
-          </header>
-        </div>
-      </article>
-      
-      <article class="nunoa-mv-card nunoa-mv-card-additional">
-        <div class="nunoa-mv-icon">15</div>
-        <div>
-          <header class="nunoa-mv-card-header">
-            <span class="nunoa-mv-pill">Beca Sportlife 2025</span>
-            <h3 class="nunoa-mv-card-title">Marcela Fuentes</h3>
-          </header>
-        </div>
-      </article>
-      
-      <article class="nunoa-mv-card nunoa-mv-card-additional">
-        <div class="nunoa-mv-icon">16</div>
-        <div>
-          <header class="nunoa-mv-card-header">
-            <span class="nunoa-mv-pill">Beca Sportlife 2025</span>
-            <h3 class="nunoa-mv-card-title">Miguel Cartagena</h3>
-          </header>
-        </div>
-      </article>
-      
-      <article class="nunoa-mv-card nunoa-mv-card-additional">
-        <div class="nunoa-mv-icon">17</div>
-        <div>
-          <header class="nunoa-mv-card-header">
-            <span class="nunoa-mv-pill">Beca Sportlife 2025</span>
-            <h3 class="nunoa-mv-card-title">Daniel Vera</h3>
-          </header>
-        </div>
-      </article>
-      
-      <article class="nunoa-mv-card nunoa-mv-card-additional">
-        <div class="nunoa-mv-icon">18</div>
-        <div>
-          <header class="nunoa-mv-card-header">
-            <span class="nunoa-mv-pill">Beca Sportlife 2025</span>
-            <h3 class="nunoa-mv-card-title">Bastián Narváez</h3>
-          </header>
-        </div>
-      </article>
-      
-      <article class="nunoa-mv-card nunoa-mv-card-additional">
-        <div class="nunoa-mv-icon">19</div>
-        <div>
-          <header class="nunoa-mv-card-header">
-            <span class="nunoa-mv-pill">Beca Sportlife 2025</span>
-            <h3 class="nunoa-mv-card-title">María Cabrera</h3>
-          </header>
-        </div>
-      </article>
-      
-      <article class="nunoa-mv-card nunoa-mv-card-additional">
-        <div class="nunoa-mv-icon">20</div>
-        <div>
-          <header class="nunoa-mv-card-header">
-            <span class="nunoa-mv-pill">Beca Sportlife 2025</span>
-            <h3 class="nunoa-mv-card-title">Javiera Alvarado</h3>
-          </header>
-        </div>
-      </article>
-      
-      <article class="nunoa-mv-card nunoa-mv-card-additional">
-        <div class="nunoa-mv-icon">21</div>
-        <div>
-          <header class="nunoa-mv-card-header">
-            <span class="nunoa-mv-pill">Beca Sportlife 2025</span>
-            <h3 class="nunoa-mv-card-title">Roland Olivares</h3>
-          </header>
-        </div>
-      </article>      
-
-      <article class="nunoa-mv-card nunoa-mv-card-additional">
-        <div class="nunoa-mv-icon">22</div>
-        <div>
-          <header class="nunoa-mv-card-header">
-            <span class="nunoa-mv-pill">Beca Sportlife 2025</span>
-            <h3 class="nunoa-mv-card-title">Rosa Sánchez</h3>
-          </header>
-        </div>
-      </article>  
-      
-      <article class="nunoa-mv-card nunoa-mv-card-additional">
-        <div class="nunoa-mv-icon">23</div>
-        <div>
-          <header class="nunoa-mv-card-header">
-            <span class="nunoa-mv-pill">Beca Sportlife 2025</span>
-            <h3 class="nunoa-mv-card-title">Matilda González</h3>
-          </header>
-        </div>
-      </article>  
-      
-      <article class="nunoa-mv-card nunoa-mv-card-additional">
-        <div class="nunoa-mv-icon">24</div>
-        <div>
-          <header class="nunoa-mv-card-header">
-            <span class="nunoa-mv-pill">Beca Sportlife 2025</span>
-            <h3 class="nunoa-mv-card-title">Josefa Valenzuela</h3>
-          </header>
-        </div>
-      </article>  
-      
-      <article class="nunoa-mv-card nunoa-mv-card-additional">
-        <div class="nunoa-mv-icon">25</div>
-        <div>
-          <header class="nunoa-mv-card-header">
-            <span class="nunoa-mv-pill">Beca Sportlife 2025</span>
-            <h3 class="nunoa-mv-card-title">Tomás Arancibia</h3>
-          </header>
-        </div>
-      </article>  
-      
-      <article class="nunoa-mv-card nunoa-mv-card-additional">
-        <div class="nunoa-mv-icon">26</div>
-        <div>
-          <header class="nunoa-mv-card-header">
-            <span class="nunoa-mv-pill">Beca Sportlife 2025</span>
-            <h3 class="nunoa-mv-card-title">Javier Manns</h3>
-          </header>
-        </div>
-      </article>  
-      
-      <article class="nunoa-mv-card nunoa-mv-card-additional">
-        <div class="nunoa-mv-icon">27</div>
-        <div>
-          <header class="nunoa-mv-card-header">
-            <span class="nunoa-mv-pill">Beca Sportlife 2025</span>
-            <h3 class="nunoa-mv-card-title">Ana Águila</h3>
-          </header>
-        </div>
-      </article>  
-      
-      <article class="nunoa-mv-card nunoa-mv-card-additional">
-        <div class="nunoa-mv-icon">28</div>
-        <div>
-          <header class="nunoa-mv-card-header">
-            <span class="nunoa-mv-pill">Beca Sportlife 2025</span>
-            <h3 class="nunoa-mv-card-title">Ana Avendaño</h3>
-          </header>
-        </div>
-      </article>  
-      
-      <article class="nunoa-mv-card nunoa-mv-card-additional">
-        <div class="nunoa-mv-icon">29</div>
-        <div>
-          <header class="nunoa-mv-card-header">
-            <span class="nunoa-mv-pill">Beca Sportlife 2025</span>
-            <h3 class="nunoa-mv-card-title">Gonzalo Arellano</h3>
-          </header>
-        </div>
-      </article>  
-      
-      <article class="nunoa-mv-card nunoa-mv-card-additional">
-        <div class="nunoa-mv-icon">30</div>
-        <div>
-          <header class="nunoa-mv-card-header">
-            <span class="nunoa-mv-pill">Beca Sportlife 2025</span>
-            <h3 class="nunoa-mv-card-title">Constanza Rivas</h3>
-          </header>
-        </div>
-      </article>
 
     </div>
 

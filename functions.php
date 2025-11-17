@@ -208,3 +208,48 @@ require_once get_template_directory() . '/inc/custom-post-types/Slider.php';
 require_once get_template_directory() . '/inc/customizer/offer/offer-customizer.php';
 require_once get_template_directory() . '/inc/customizer/noticias/noticias-customizer.php';
 
+
+
+// CPT Beneficiarios
+function becas_register_cpt() {
+    $labels = array(
+        'name' => 'Beneficiarios',
+        'singular_name' => 'Beneficiario'
+    );
+
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'has_archive' => false,
+        'menu_icon' => 'dashicons-awards',
+        'supports' => array('title'), // solo título
+    );
+
+    register_post_type('beneficiario', $args);
+}
+add_action('init', 'becas_register_cpt');
+
+// Campo número para Beneficiarios
+function beneficiario_metabox() {
+    add_meta_box(
+        'beneficiario_numero',
+        'Número de lista',
+        'beneficiario_numero_callback',
+        'beneficiario',
+        'side'
+    );
+}
+add_action('add_meta_boxes', 'beneficiario_metabox');
+
+function beneficiario_numero_callback($post) {
+    $value = get_post_meta($post->ID, '_beneficiario_numero', true);
+    echo '<label>Número:</label>';
+    echo '<input type="number" name="beneficiario_numero" value="' . esc_attr($value) . '" style="width:100%;">';
+}
+
+function beneficiario_numero_save($post_id) {
+    if (array_key_exists('beneficiario_numero', $_POST)) {
+        update_post_meta($post_id, '_beneficiario_numero', sanitize_text_field($_POST['beneficiario_numero']));
+    }
+}
+add_action('save_post', 'beneficiario_numero_save');
