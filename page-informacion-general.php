@@ -69,7 +69,6 @@ get_header();
   font-size: 18px;
   line-height: 1.65;
   color: #333;
-  text-align: justify;
 }
 
 /* ===================== TARJETAS ENFOQUES ===================== */
@@ -224,11 +223,21 @@ get_header();
 
 <!-- HERO -->
 <section class="info-hero">
-  <img src="<?php echo get_template_directory_uri(); ?>/assets/img/headernosotros.png" alt="">
+<img src="<?php echo esc_url( get_theme_mod('ig_hero_image', get_template_directory_uri() . '/assets/img/headernosotros.png') ); ?>" alt="">
   
   <div class="info-hero-inner">
-    <h1 class="info-hero-title">Información General</h1>
-    <p class="info-hero-subtitle">Conoce nuestra historia, nuestro trabajo y el impacto en la comunidad.</p>
+<h1 class="info-hero-title">
+  <span id="ig_hero_title_preview">
+    <?php echo esc_html( get_theme_mod('ig_hero_title', 'Información General') ); ?>
+  </span>
+</h1>
+
+<p class="info-hero-subtitle">
+  <span id="ig_hero_sub_preview">
+    <?php echo esc_html( get_theme_mod('ig_hero_subtitle', 'Conoce nuestra historia, nuestro trabajo y el impacto en la comunidad.') ); ?>
+  </span>
+</p>
+
   </div>
 </section>
 
@@ -248,23 +257,62 @@ get_header();
   <!-- TARJETAS -->
   <div class="info-cards">
 
-    <div class="info-card">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/genero.png" alt="">
-      <h4>Género</h4>
-      <p>Eliminamos barreras y promovemos espacios deportivos seguros, inclusivos y libres de violencia.</p>
-    </div>
+<div class="info-card">
+  <img 
+    src="<?php echo esc_url( get_theme_mod('ig_card1_img', get_template_directory_uri() . '/assets/icons/genero.png') ); ?>" 
+    alt="">
 
-    <div class="info-card">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/curso.png" alt="">
-      <h4>Curso de Vida</h4>
-      <p>Impulsamos actividades para todas las edades, desde la primera infancia hasta adultos mayores.</p>
-    </div>
+  <h4>
+    <span id="ig_card1_title_preview">
+      <?php echo esc_html( get_theme_mod('ig_card1_title', 'Género') ); ?>
+    </span>
+  </h4>
 
-    <div class="info-card">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/derecho.png" alt="">
-      <h4>Derecho</h4>
-      <p>Priorizamos el acceso deportivo en sectores vulnerables, promoviendo igualdad de oportunidades.</p>
-    </div>
+  <p>
+    <span id="ig_card1_text_preview">
+      <?php echo esc_html( get_theme_mod('ig_card1_text', 'Eliminamos barreras y promovemos espacios deportivos seguros, inclusivos y libres de violencia.') ); ?>
+    </span>
+  </p>
+</div>
+
+
+<div class="info-card">
+  <img 
+    src="<?php echo esc_url( get_theme_mod('ig_card2_img', get_template_directory_uri() . '/assets/icons/curso.png') ); ?>" 
+    alt="">
+
+  <h4>
+    <span id="ig_card2_title_preview">
+      <?php echo esc_html( get_theme_mod('ig_card2_title', 'Curso de Vida') ); ?>
+    </span>
+  </h4>
+
+  <p>
+    <span id="ig_card2_text_preview">
+      <?php echo esc_html( get_theme_mod('ig_card2_text', 'Impulsamos actividades para todas las edades, desde la primera infancia hasta adultos mayores.') ); ?>
+    </span>
+  </p>
+</div>
+
+
+<div class="info-card">
+  <img 
+    src="<?php echo esc_url( get_theme_mod('ig_card3_img', get_template_directory_uri() . '/assets/icons/derecho.png') ); ?>" 
+    alt="">
+
+  <h4>
+    <span id="ig_card3_title_preview">
+      <?php echo esc_html( get_theme_mod('ig_card3_title', 'Derecho') ); ?>
+    </span>
+  </h4>
+
+  <p>
+    <span id="ig_card3_text_preview">
+      <?php echo esc_html( get_theme_mod('ig_card3_text', 'Priorizamos el acceso deportivo en sectores vulnerables, promoviendo igualdad de oportunidades.') ); ?>
+    </span>
+  </p>
+</div>
+
 
   </div>
 
@@ -273,11 +321,18 @@ get_header();
 <!-- RECINTOS -->
 <section class="recintos-wrapper">
 
-  <h2 class="recintos-title">Conoce nuestros recintos y mucho más...</h2>
-  <p class="recintos-sub">
-    Contamos con múltiples espacios deportivos como el Polideportivo de Ñuñoa, el Gimnasio Ñuñoa Plaza, 
-    el Club Ñuñoa, canchas comunales y actividades en Juntas de Vecinos, colegios y espacios abiertos.
-  </p>
+<h2 class="recintos-title">
+  <span id="ig_rec_title_preview">
+    <?php echo esc_html( get_theme_mod('ig_rec_title', 'Conoce nuestros recintos y mucho más...') ); ?>
+  </span>
+</h2>
+
+<p class="recintos-sub">
+  <span id="ig_rec_sub_preview">
+    <?php echo esc_html( get_theme_mod('ig_rec_sub', 'Contamos con múltiples espacios deportivos como el Polideportivo...') ); ?>
+  </span>
+</p>
+
 
   <div class="recinto-grid">
 
