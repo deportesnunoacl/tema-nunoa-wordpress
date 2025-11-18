@@ -326,26 +326,35 @@ document.addEventListener('DOMContentLoaded', function() {
     <img src="<?php echo esc_url( $banner_img ); ?>" alt="Fondo misión y visión">
 
     <div class="nunoa-mv-hero-inner">
-      <h1 class="nunoa-mv-title">Becas sportlife 2025</h1>
-      <p class="nunoa-mv-subtitle">
-        Conoce nuestros ganadores de la beca.
-      </p>
+<h1 class="nunoa-mv-title">
+    <span id="becas_hero_title_preview">
+        <?php echo esc_html( get_theme_mod('becas_hero_title') ); ?>
+    </span>
+</h1>
+
+<p class="nunoa-mv-subtitle">
+    <span id="becas_hero_subtitle_preview">
+        <?php echo esc_html( get_theme_mod('becas_hero_subtitle') ); ?>
+    </span>
+</p>
+
     </div>
   </section>
 
   <!-- Texto introductorio -->
   <div class="directorio-text-block">
-    <h3>Ganadoras y ganadores Beca Sportlife 2025</h3>
-    <p>
-      Agradecemos a las vecinas y vecinos que postularon, y
-      a quienes no fueron adjudicados les invitamos a seguir
-      nuestras redes, ya que si las personas beneficiadas
-      con la beca no se presentan al cupo se hará correr
-      la lista. Las ganadoras y ganadores deben acercarse
-      a partir del jueves 2 de enero del 2025 para empezar
-      a utilizar sus becas. Se les recuerda que si no tienen 
-      una asistencia promedio de ocho veces al mes la beca será caducada.
-    </p>
+<h3>
+    <span id="becas_intro_title_preview">
+        <?php echo esc_html( get_theme_mod('becas_intro_title') ); ?>
+    </span>
+</h3>
+
+<p>
+    <span id="becas_intro_text_preview">
+        <?php echo wp_kses_post( get_theme_mod('becas_intro_text') ); ?>
+    </span>
+</p>
+
   </div>
 
   <!-- Contenido Becas -->
