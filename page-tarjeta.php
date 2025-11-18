@@ -158,7 +158,6 @@ get_header();
 }
 
 .toggle-btn::after {
-  content: "↓";
   font-size: 0.9rem;
   transition: transform 0.3s ease;
 }
@@ -507,11 +506,22 @@ get_header();
 
 <!-- HERO -->
 <section class="info-hero">
-  <img src="<?php echo get_template_directory_uri(); ?>/assets/img/tarjeta.png" alt="">
+<img src="<?php echo esc_url( get_theme_mod('tv_hero_image', get_template_directory_uri() . '/assets/img/tarjeta.png') ); ?>" alt="">
+
   
   <div class="info-hero-inner">
-    <h1 class="info-hero-title">Tarjeta Vecino</h1>
-    <p class="info-hero-subtitle">Conoce nuestros beneficios y requisitos de la tarjeta vecino.</p>
+<h1 class="info-hero-title">
+    <span id="tv_hero_title_preview">
+        <?php echo esc_html( get_theme_mod('tv_hero_title', 'Tarjeta Vecino') ); ?>
+    </span>
+</h1>
+
+<p class="info-hero-subtitle">
+    <span id="tv_hero_subtitle_preview">
+        <?php echo esc_html( get_theme_mod('tv_hero_subtitle', 'Conoce nuestros beneficios y requisitos de la tarjeta vecino.') ); ?>
+    </span>
+</p>
+
   </div>
 </section>
 
@@ -533,96 +543,70 @@ get_header();
 
   <!-- REQUISITOS MEJORADO -->
   <div class="info-card">
-    <h4>Requisitos</h4>
+<h4>
+  <span id="tv_req_title_preview">
+    <?php echo esc_html( get_theme_mod('tv_req_title', 'Requisitos') ); ?>
+  </span>
+</h4>
 
-    <p class="summary">
-      Debes acreditar residencia permanente en Ñuñoa mediante documentos válidos.
-    </p>
+<p class="summary">
+  <span id="tv_req_summary_preview">
+    <?php echo esc_html( get_theme_mod('tv_req_summary', 'Debes acreditar residencia permanente en Ñuñoa mediante documentos válidos.') ); ?>
+  </span>
+</p>
+
 
     <button class="toggle-btn">Ver más</button>
 
-    <div class="more-info">
-      <div class="requisitos-section">
-        <h5>Documentos para acreditar residencia</h5>
-        <p>Presentar uno (1) de los siguientes documentos (máx. 3 meses de antigüedad):</p>
-        <ul>
-          <li>Cuentas de servicios básicos (luz, agua, gas, internet, TV)</li>
-          <li>Certificado de Residencia actualizado</li>
-          <li>Registro Social de Hogares vigente en Ñuñoa</li>
-          <li>Contrato de arriendo legalizado</li>
-          <li>Liquidación de pago de pensión</li>
-        </ul>
-      </div>
+<div class="more-info">
+  <div id="tv_req_content_preview">
+    <?php echo wp_kses_post( get_theme_mod('tv_req_content') ); ?>
+  </div>
+</div>
 
-      <div class="requisitos-section">
-        <h5>Documentos financieros y legales</h5>
-        <ul>
-          <li>Cartola bancaria, AFP o Isapre</li>
-          <li>Cuenta TAG actualizada</li>
-          <li>Licencia de conducir con domicilio en la comuna</li>
-          <li>Documento de gasto común con firma y timbre</li>
-        </ul>
-      </div>
-
-      <div class="requisitos-section">
-        <h5>Otros documentos válidos</h5>
-        <ul>
-          <li>Servicios contratados en el domicilio (alarmas, plataformas digitales, purificadoras, etc.)</li>
-          <li>Contribuciones o pago de aseo municipal</li>
-        </ul>
-      </div>
-
-      <div class="requisitos-nota">
-        <p><strong>📝 Nota importante:</strong> La Tarjeta Vecino es personal, intransferible y tiene una vigencia de 6 años.</p>
-      </div>
-    </div>
   </div>
 
   <!-- BENEFICIOS -->
   <div class="info-card">
-    <h4>Beneficios</h4>
+<h4>
+  <span id="tv_ben_title_preview">
+    <?php echo esc_html( get_theme_mod('tv_ben_title', 'Beneficios') ); ?>
+  </span>
+</h4>
 
-    <p class="summary">
-      Descuentos y acceso preferente en deportes, salud, cultura y comercios de la comuna.
-    </p>
+<p class="summary">
+  <span id="tv_ben_summary_preview">
+    <?php echo esc_html( get_theme_mod('tv_ben_summary', 'Descuentos y acceso preferente en deportes, salud, cultura y comercios de la comuna.') ); ?>
+  </span>
+</p>
+
 
     <button class="toggle-btn">Ver más</button>
 
-    <div class="more-info">
-      <h5>Beneficios deportivos</h5>
-      <ul>
-        <li>Descuento en arriendo de canchas del Polideportivo (pasto sintético y techadas)</li>
-        <li>Acceso preferencial a natación, nado libre, aquafitness e hidrogimnasia</li>
-        <li>Talleres deportivos municipales con tarifas rebajadas</li>
-        <li>Descuentos en masajes, masoterapia y terapias complementarias</li>
-      </ul>
+<div class="more-info">
+  <div id="tv_ben_content_preview">
+      <?php echo wp_kses_post( get_theme_mod('tv_ben_content') ); ?>
+  </div>
+</div>
 
-      <h5>Salud y bienestar</h5>
-      <ul>
-        <li>Descuentos en kinesiología municipal</li>
-        <li>Masajes a precio preferente</li>
-        <li>Convenios con clínicas: kinesiología personalizada, traumatología, adultos mayores</li>
-      </ul>
-
-      <h5>Comercios y convenios</h5>
-      <ul>
-        <li>Descuentos en comercios asociados</li>
-        <li>Convenios especiales como compra de bicicletas u otros según vigencia</li>
-      </ul>
-
-      <h5>Generales</h5>
-        <li>Acceso a talleres municipales recreativos y culturales</li>
-        <li>Cupos preferentes en actividades comunitarias</li>
-        <li>Participación en eventos exclusivos para vecinos</li>
-    </div>
   </div>
 
 </div>
 
 <!-- SECCIÓN CONSULTAR ESTADO -->
 <section class="consultar-estado">
-  <h3>Consultar Estado de Tarjeta Vecino</h3>
-  <p>Verifica el estado de tu solicitud o renueva tu tarjeta vecino de forma rápida y sencilla</p>
+<h3>
+    <span id="tv_estado_title_preview">
+        <?php echo esc_html( get_theme_mod('tv_estado_title', 'Consultar Estado de Tarjeta Vecino') ); ?>
+    </span>
+</h3>
+
+<p>
+    <span id="tv_estado_text_preview">
+        <?php echo esc_html( get_theme_mod('tv_estado_text', 'Verifica el estado de tu solicitud o renueva tu tarjeta vecino de forma rápida y sencilla') ); ?>
+    </span>
+</p>
+
   <a href="https://nunoa.tarjetavecino.com/consulta" class="consultar-btn" target="_blank">
     <svg class="consultar-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M16.65 17A7.5 7.5 0 1117 16.65z"></path>
