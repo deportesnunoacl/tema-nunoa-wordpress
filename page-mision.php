@@ -219,44 +219,58 @@ $banner_img = get_template_directory_uri() . '/assets/img/BgVerde.png';
 
   <!-- Banner tipo Noticias -->
   <section class="nunoa-mv-hero">
-    <img src="<?php echo esc_url( $banner_img ); ?>" alt="Fondo misión y visión">
+<img src="<?php echo esc_url( get_theme_mod('mv_hero_image', $banner_img) ); ?>" alt="Fondo misión y visión">
+
 
     <div class="nunoa-mv-hero-inner">
-      <div class="nunoa-mv-kicker">Nuestra identidad institucional</div>
-      <h1 class="nunoa-mv-title">Misión &amp; Visión</h1>
-      <p class="nunoa-mv-subtitle">
-        Nuestro propósito, nuestro compromiso y el horizonte que guía cada una de las
-        actividades deportivas en Ñuñoa.
-      </p>
+<div class="nunoa-mv-kicker" id="mv_kicker_preview">
+  <?php echo esc_html( get_theme_mod('mv_kicker', 'Nuestra identidad institucional') ); ?>
+</div>
+
+<h1 class="nunoa-mv-title">
+  <span id="mv_title_preview">
+    <?php echo esc_html( get_theme_mod('mv_title', 'Misión & Visión') ); ?>
+  </span>
+</h1>
+
+<p class="nunoa-mv-subtitle" id="mv_subtitle_preview">
+  <?php echo esc_html( get_theme_mod('mv_subtitle', 'Nuestro propósito, nuestro compromiso y el horizonte que guía...') ); ?>
+</p>
+
     </div>
   </section>
 
   <!-- Contenido Misión / Visión -->
   <section class="nunoa-mv-wrapper">
-    <h2 class="nunoa-mv-section-title">Nuestro Propósito Institucional</h2>
+<h2 class="nunoa-mv-section-title" id="mv_section_title_preview">
+  <?php echo esc_html( get_theme_mod('mv_section_title', 'Nuestro Propósito Institucional') ); ?>
+</h2>
+
 
     <div class="nunoa-mv-cards">
 
       <!-- Misión -->
       <article class="nunoa-mv-card">
-        <div class="nunoa-mv-icon">
-          <!-- Puedes reemplazar por un ícono propio -->
-          <!-- <img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon-mision.png" alt="Icono misión"> -->
-          M
-        </div>
+<div class="nunoa-mv-icon">
+  <?php echo wp_kses_post( get_theme_mod('mv_mision_icon', 'M') ); ?>
+</div>
+
 
         <div>
           <header class="nunoa-mv-card-header">
-            <span class="nunoa-mv-pill">Quiénes somos</span>
-            <h3 class="nunoa-mv-card-title">Misión</h3>
+<span class="nunoa-mv-pill" id="mv_mision_pill_preview">
+  <?php echo esc_html( get_theme_mod('mv_mision_pill', 'Quiénes somos') ); ?>
+</span>
+
+<h3 class="nunoa-mv-card-title" id="mv_mision_title_preview">
+  <?php echo esc_html( get_theme_mod('mv_mision_title', 'Misión') ); ?>
+</h3>
+
           </header>
-          <div class="nunoa-mv-card-body">
-            La Corporación Municipal de Deportes de Ñuñoa busca promover, fomentar, difundir y
-            desarrollar programas deportivos que respondan a las necesidades de bienestar y
-            esparcimiento de sus vecinos y organizaciones sociales. Realizamos actividades en
-            recintos deportivos, unidades vecinales y espacios públicos, con el objetivo de
-            <strong>mejorar la calidad de vida de nuestros habitantes mediante el deporte</strong>.
-          </div>
+<div class="nunoa-mv-card-body" id="mv_mision_body_preview">
+  <?php echo wp_kses_post( get_theme_mod('mv_mision_body', 'Texto de misión por defecto…') ); ?>
+</div>
+
         </div>
       </article>
 
@@ -264,24 +278,26 @@ $banner_img = get_template_directory_uri() . '/assets/img/BgVerde.png';
 
       <!-- Visión -->
       <article class="nunoa-mv-card">
-        <div class="nunoa-mv-icon">
-          <!-- Ícono de visión si tienes un archivo -->
-          <!-- <img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon-vision.png" alt="Icono visión"> -->
-          V
-        </div>
+<div class="nunoa-mv-icon">
+  <?php echo wp_kses_post( get_theme_mod('mv_vision_icon', 'V') ); ?>
+</div>
+
 
         <div>
           <header class="nunoa-mv-card-header">
-            <span class="nunoa-mv-pill">Hacia dónde vamos</span>
-            <h3 class="nunoa-mv-card-title">Visión</h3>
+<span class="nunoa-mv-pill" id="mv_vision_pill_preview">
+  <?php echo esc_html( get_theme_mod('mv_vision_pill', 'Hacia dónde vamos') ); ?>
+</span>
+
+<h3 class="nunoa-mv-card-title" id="mv_vision_title_preview">
+  <?php echo esc_html( get_theme_mod('mv_vision_title', 'Visión') ); ?>
+</h3>
+
           </header>
-          <div class="nunoa-mv-card-body">
-            Aspiramos a consolidarnos como un referente del deporte comunal, promoviendo una
-            gestión profesional, humana y sostenible. A través de la calidad humana y técnica de
-            nuestro equipo, y de la diversidad de nuestra oferta e infraestructura,
-            <strong>queremos ser la institución líder en la promoción del deporte, la salud y el
-            bienestar para toda la comunidad de Ñuñoa</strong>.
-          </div>
+<div class="nunoa-mv-card-body" id="mv_vision_body_preview">
+  <?php echo wp_kses_post( get_theme_mod('mv_vision_body', 'Texto de visión por defecto…') ); ?>
+</div>
+
         </div>
       </article>
 
