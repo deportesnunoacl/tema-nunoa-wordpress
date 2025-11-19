@@ -154,13 +154,23 @@ get_header();
  
 
   <div class="directorio-hero-inner">
-    <div class="directorio-kicker">Corporación Municipal de Deportes</div>
+<div class="directorio-kicker" id="dir_kicker_preview">
+  <?php echo esc_html( get_theme_mod('dir_kicker', 'Corporación Municipal de Deportes') ); ?>
+</div>
 
-    <h1 class="directorio-title">Directorio & Administración</h1>
 
-    <p class="directorio-subtitle">
-      Conoce al equipo que lidera y guía el desarrollo del deporte en Ñuñoa.
-    </p>
+<h1 class="directorio-title" id="dir_title_preview">
+  <?php echo esc_html( get_theme_mod('dir_title', 'Directorio & Administración') ); ?>
+</h1>
+
+
+<p class="directorio-subtitle" id="dir_subtitle_preview">
+  <?php echo esc_html( get_theme_mod('dir_subtitle', 
+    'Conoce al equipo que lidera y guía el desarrollo del deporte en Ñuñoa.'
+  ) ); ?>
+</p>
+
+
   </div>
 </section>
 
@@ -169,50 +179,44 @@ get_header();
 
   <!-- Texto introductorio -->
   <div class="directorio-text-block">
-    <h3>Directorio Corporación Municipal de Deportes de Ñuñoa</h3>
-    <p>
-      Nuestro directorio está conformado por líderes comprometidos con el desarrollo deportivo,
-      la inclusión y el bienestar de la comunidad. Cada integrante aporta su experiencia para
-      impulsar el crecimiento de Ñuñoa Deportes.
-    </p>
+<h3 id="dir_intro_title_preview">
+  <?php echo esc_html( get_theme_mod('dir_intro_title', 
+    'Directorio Corporación Municipal de Deportes de Ñuñoa'
+  ) ); ?>
+</h3>
+
+<p id="dir_intro_text_preview">
+  <?php echo esc_html( get_theme_mod('dir_intro_text', 
+    'Nuestro directorio está conformado por líderes comprometidos...'
+  ) ); ?>
+</p>
+
   </div>
 
   <!-- GRID DIRECTORIO -->
   <div class="directorio-grid">
 
-    <!-- Card -->
-    <div class="directorio-card">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sebass.png" alt="Sebastián Sichel">
-      <h4>Sebastián Sichel</h4>
-      <span class="role">Presidente</span>
-    </div>
+<?php for ($i = 1; $i <= 5; $i++): ?>
 
-    <div class="directorio-card">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/kareng.png" alt="Karen Gallardo">
-      <h4>Karen Gallardo</h4>
-      <span class="role">Directora</span>
-    </div>
+  <div class="directorio-card">
 
-    <div class="directorio-card">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/pedrol.png" alt="Pedro Lira">
-      <h4>Pedro Lira</h4>
-      <span class="role">Director</span>
-    </div>
+    <img src="<?php echo esc_url( get_theme_mod("dir_card{$i}_img") ); ?>" 
+         alt="<?php echo esc_attr( get_theme_mod("dir_card{$i}_name") ); ?>">
 
-    <div class="directorio-card">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/cristiand.png" alt="Cristian Dettoni">
-      <h4>Cristian Dettoni</h4>
-      <span class="role">Director</span>
-    </div>
+    <h4 id="dir_card<?php echo $i; ?>_name_preview">
+      <?php echo esc_html( get_theme_mod("dir_card{$i}_name") ); ?>
+    </h4>
 
-    <div class="directorio-card">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/elizardov.png" alt="Elizardo Vera">
-      <h4>Elizardo Vera</h4>
-      <span class="role">Director</span>
-    </div>
+    <span class="role" id="dir_card<?php echo $i; ?>_role_preview">
+      <?php echo esc_html( get_theme_mod("dir_card{$i}_role") ); ?>
+    </span>
 
   </div>
-</section>
+
+<?php endfor; ?>
+
+</div>
+
 
 </main>
 
