@@ -15,10 +15,9 @@
   <!-- TOP BAR (SOLO DESKTOP) -->
   <div class="top-bar">
     <div class="container w-full mx-auto links">
-      <a href="#">Plataforma<br><strong>Ley del lobby</strong></a>
-      <a href="#">Transparencia Activa<br><strong>Ley de Transparencia</strong></a>
-      <a href="#">Solicitud de información<br><strong>Ley de Transparencia</strong></a>
-      <a href="#">Transparencia municipal<br><strong>Histórico</strong></a>
+      <a href="https://www.leylobby.gob.cl/instituciones/CM081" target="_blank" rel="noopener noreferrer">Plataforma<br><strong>Ley del lobby</strong></a>
+      <a href="https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU186" target="_blank" rel="noopener noreferrer">Transparencia Activa<br><strong>Ley de Transparencia</strong></a>
+      <a href="https://www.portaltransparencia.cl/PortalPdT/ingreso-sai-v2?idOrg=620" target="_blank" rel="noopener noreferrer">Solicitud de información<br><strong>Ley de Transparencia</strong></a>
     </div>
   </div>
 
