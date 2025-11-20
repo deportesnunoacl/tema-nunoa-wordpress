@@ -25,7 +25,7 @@
     <?php if ($recintos->have_posts()) : ?>
       <!-- Agregar py-6 para padding vertical -->
       <div class="recintos-swiper-container relative py-6">
-        <div class="swiper recintos-slider">
+        <div class="swiper recintos-programas-slider">
           <div class="swiper-wrapper items-center">
             <?php while ($recintos->have_posts()) : $recintos->the_post(); 
               // Obtener el campo ACF 'icono'

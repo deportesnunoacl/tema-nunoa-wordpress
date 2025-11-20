@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-  const recintosSwiper = new Swiper('.recintos-slider', {
+  const recintosSwiper = new Swiper('.recintos-programas-slider', {
     slidesPerView: 3,
     spaceBetween: 20,
     centeredSlides: false,
