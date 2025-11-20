@@ -217,6 +217,28 @@ get_header();
   margin-bottom: 6px;
 }
 
+/* ----------- Scroll Animations (versión estable) ------------ */
+
+.scroll-animate {
+  opacity: 1;               /* NO ocultamos contenido por defecto */
+  transform: none;          /* Evita saltos o reflujo */
+  transition: all .9s ease;
+}
+
+/* Estados iniciales */
+.scroll-fade    { opacity: 0; }
+.scroll-up      { opacity: 0; transform: translateY(40px); }
+.scroll-down    { opacity: 0; transform: translateY(-40px); }
+.scroll-left    { opacity: 0; transform: translateX(-40px); }
+.scroll-right   { opacity: 0; transform: translateX(40px); }
+.scroll-zoom    { opacity: 0; transform: scale(.85); }
+
+/* Estados visibles */
+.scroll-animate.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
 </style>
 
 <main class="bg-white">
@@ -226,13 +248,13 @@ get_header();
 <img src="<?php echo esc_url( get_theme_mod('ig_hero_image', get_template_directory_uri() . '/assets/img/headernosotros.png') ); ?>" alt="">
   
   <div class="info-hero-inner">
-<h1 class="info-hero-title">
+<h1 class="info-hero-title scroll-animate scroll-up">
   <span id="ig_hero_title_preview">
     <?php echo esc_html( get_theme_mod('ig_hero_title', 'Información General') ); ?>
   </span>
 </h1>
 
-<p class="info-hero-subtitle">
+<p class="info-hero-subtitle scroll-animate scroll-left">
   <span id="ig_hero_sub_preview">
     <?php echo esc_html( get_theme_mod('ig_hero_subtitle', 'Conoce nuestra historia, nuestro trabajo y el impacto en la comunidad.') ); ?>
   </span>
@@ -246,7 +268,7 @@ get_header();
   <!-- TEXTO PRINCIPAL DINÁMICO -->
 <section class="info-wrapper">
 
-  <div class="info-content">
+<div class="info-content scroll-animate scroll-fade">
     <?php 
       while ( have_posts() ) : the_post();
         the_content();
@@ -257,7 +279,7 @@ get_header();
   <!-- TARJETAS -->
   <div class="info-cards">
 
-<div class="info-card">
+<div class="info-card scroll-animate scroll-up">
   <img 
     src="<?php echo esc_url( get_theme_mod('ig_card1_img', get_template_directory_uri() . '/assets/icons/genero.png') ); ?>" 
     alt="">
@@ -276,7 +298,7 @@ get_header();
 </div>
 
 
-<div class="info-card">
+<div class="info-card scroll-animate scroll-zoom">
   <img 
     src="<?php echo esc_url( get_theme_mod('ig_card2_img', get_template_directory_uri() . '/assets/icons/curso.png') ); ?>" 
     alt="">
@@ -295,7 +317,7 @@ get_header();
 </div>
 
 
-<div class="info-card">
+<div class="info-card scroll-animate scroll-up">
   <img 
     src="<?php echo esc_url( get_theme_mod('ig_card3_img', get_template_directory_uri() . '/assets/icons/derecho.png') ); ?>" 
     alt="">
@@ -321,13 +343,13 @@ get_header();
 <!-- RECINTOS -->
 <section class="recintos-wrapper">
 
-<h2 class="recintos-title">
+<h2 class="recintos-title scroll-animate scroll-down">
   <span id="ig_rec_title_preview">
     <?php echo esc_html( get_theme_mod('ig_rec_title', 'Conoce nuestros recintos y mucho más...') ); ?>
   </span>
 </h2>
 
-<p class="recintos-sub">
+<p class="recintos-sub scroll-animate scroll-fade">
   <span id="ig_rec_sub_preview">
     <?php echo esc_html( get_theme_mod('ig_rec_sub', 'Contamos con múltiples espacios deportivos como el Polideportivo...') ); ?>
   </span>
@@ -336,7 +358,7 @@ get_header();
 
   <div class="recinto-grid">
 
-    <div class="recinto-card">
+<div class="recinto-card scroll-animate scroll-right">
       <img class="recinto-img" 
            src="<?php echo get_template_directory_uri(); ?>/assets/img/polideportivo.png" 
            alt="">
@@ -375,6 +397,29 @@ get_header();
   </div>
 
 </section>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const targets = document.querySelectorAll(".scroll-animate");
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        {
+            threshold: 0.35,            // aparece más tarde
+            rootMargin: "0px 0px -15% 0px" 
+        }
+    );
+
+    targets.forEach(el => observer.observe(el));
+});
+</script>
 
 </main>
 
