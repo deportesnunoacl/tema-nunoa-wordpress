@@ -11,25 +11,24 @@ $noticias = new WP_Query([
 ]);
 ?>
 
-<div class="w-full md:w-[90%]  h-min relative mx-auto rounded-3xl mt-10"
-    style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/BgVerde.png'); background-size: cover; background-repeat: no-repeat;">
+<div class="w-full md:w-[90%]  h-min relative mx-auto rounded-3xl mt-10" >
     
     <div class="w-full container mx-auto flex flex-col justify-between gap-5 relative h-min  p-5 md:px-0 py-20">
         
         <!-- Encabezado -->
         <div class="flex flex-col md:flex-row justify-between w-full md:items-end items-start gap-5 md:gap-0">
             <div class="flex flex-col gap-5 md:gap-0">
-                <h2 class="text-3xl md:text-4xl text-white font-gabarito font-normal">
+                <h2 class="text-3xl md:text-4xl text-primary font-gabarito font-normal">
                     Lo que pasa en 
                     <span class="font-bold">Ñuñoa Deportes</span>
                 </h2>
-                <p class="text-base font-roboto text-white max-w-[500px] mt-4">
+                <p class="text-base font-roboto text-black max-w-[500px] mt-4">
                     Infórmate sobre las últimas actividades, eventos y logros deportivos de nuestra comuna. 
                     Conoce cómo vivimos el deporte en Ñuñoa.
                 </p>
             </div>
             <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>"
-                class="bg-white hover:bg-green-700 text-primary hover:text-white text-base font-roboto font-semibold px-10 py-3 rounded-full transition">
+                class="bg-primary hover:bg-green-700 text-white hover:text-white text-base font-roboto font-semibold px-10 py-3 rounded-full transition">
                 Ver más
             </a>
         </div>
@@ -41,7 +40,7 @@ $noticias = new WP_Query([
                     <div class="swiper-wrapper">
                         <?php while ($noticias->have_posts()) : $noticias->the_post(); ?>
                             <div class="swiper-slide">
-                                <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row md:max-h-[260px]">
+                                <div class="bg-white border rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row md:max-h-[260px]">
                                     
                                     <!-- Imagen (derecha en desktop) -->
                                     <div class="order-1 md:order-2 w-full md:w-1/2 h-[260px]">
@@ -59,7 +58,7 @@ $noticias = new WP_Query([
                                     <!-- Contenido (izquierda) -->
                                     <div class="order-2 md:order-1 w-full md:w-1/2 p-6 flex flex-col justify-between">
                                         <div>
-                                            <h3 class="font-gabarito text-lg text-gray-900 font-semibold leading-snug mb-3">
+                                            <h3 class="font-gabarito text-lg text-gray-900 font-semibold leading-snug mb-3 line-clamp-2">
                                                 <?php the_title(); ?>
                                             </h3>
                                             <p class="font-roboto text-gray-600 text-sm line-clamp-3">
@@ -85,11 +84,11 @@ $noticias = new WP_Query([
 
         <div class="w-full flex flex-col md:flex-row justify-between items-center mt-auto">
             <div class="flex flex-col mt-10">
-                <h3 class="text-white text-2xl md:text-3xl 2xl:text-5xl font-gabarito mb-4">
+                <h3 class="text-primary text-2xl md:text-3xl 2xl:text-5xl font-gabarito mb-4">
                     ¿Tienes dudas?<br/>
                     <strong class="font-bold">Aquí te ayudamos</strong>
                 </h3>
-                <p class="text-white text-base md:text-lg 2xl:text-xl font-roboto max-w-lg text-justify">
+                <p class="text-black text-base md:text-lg 2xl:text-xl font-roboto max-w-lg text-justify">
                     Revisa las preguntas más frecuentes sobre nuestras actividades y servicios deportivos. 
                     Si no encuentras lo que buscas, contáctanos y te orientaremos.
                 </p>

@@ -25,7 +25,7 @@
     <?php if ($recintos->have_posts()) : ?>
       <!-- Agregar py-6 para padding vertical -->
       <div class="recintos-swiper-container relative py-6">
-        <div class="swiper recintos-programas-slider">
+        <div class="swiper recintos-slider">
           <div class="swiper-wrapper items-center">
             <?php while ($recintos->have_posts()) : $recintos->the_post(); 
               // Obtener el campo ACF 'icono'
@@ -77,68 +77,3 @@
   </div>
 </div>
 
-
-<style>
-  /* Contenedor del slider */
-.recintos-swiper-container {
-  padding: 0 50px;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-/* Slides */
-.recintos-slider .swiper-slide {
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Círculos blancos */
-.recintos-slider .swiper-slide .bg-white {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* Títulos debajo de los círculos */
-.recintos-slider h3 {
-  min-height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-}
-
-/* Botones de navegación */
-.swiper-btn-prev,
-.swiper-btn-next {
-  transition: all 0.3s ease;
-  cursor: pointer;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-}
-
-.swiper-btn-prev:hover,
-.swiper-btn-next:hover {
-  opacity: 1 !important;
-  transform: translateY(-50%) scale(1.15);
-}
-
-.swiper-btn-prev.swiper-button-disabled,
-.swiper-btn-next.swiper-button-disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
-}
-
-/* Responsive móvil */
-@media (max-width: 640px) {
-  .recintos-swiper-container {
-    padding: 0 30px;
-  }
-  
-  .swiper-btn-prev,
-  .swiper-btn-next {
-    width: 8px;
-    height: 8px;
-  }
-}
-
-</style>
