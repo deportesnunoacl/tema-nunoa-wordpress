@@ -265,6 +265,51 @@ $banner_img = get_template_directory_uri() . '/assets/img/becas.png';
       height: 80px;
     }
   }
+
+  /* --------------------- SCROLL ANIMATIONS ---------------------- */
+
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+  will-change: opacity, transform;
+}
+
+/* ====== TIPOS DE ANIMACIÓN ====== */
+
+/* Subir */
+.animate-up { transform: translateY(40px); }
+.animate-up.show { transform: translateY(0); }
+
+/* Bajar */
+.animate-down { transform: translateY(-40px); }
+.animate-down.show { transform: translateY(0); }
+
+/* Desde la izquierda */
+.animate-left { transform: translateX(-50px); }
+.animate-left.show { transform: translateX(0); }
+
+/* Desde la derecha */
+.animate-right { transform: translateX(50px); }
+.animate-right.show { transform: translateX(0); }
+
+/* Zoom In */
+.animate-zoom-in { transform: scale(0.85); }
+.animate-zoom-in.show { transform: scale(1); }
+
+/* Zoom Out */
+.animate-zoom-out { transform: scale(1.2); }
+.animate-zoom-out.show { transform: scale(1); }
+
+/* Fade puro */
+.animate-fade { transform: none; }
+.animate-fade.show { opacity: 1; }
+
+/* Estado activo */
+.scroll-animate.show {
+  opacity: 1;
+}
+
 </style>
 
 <script>
@@ -326,13 +371,13 @@ document.addEventListener('DOMContentLoaded', function() {
     <img src="<?php echo esc_url( $banner_img ); ?>" alt="Fondo misión y visión">
 
     <div class="nunoa-mv-hero-inner">
-<h1 class="nunoa-mv-title">
+<h1 class="nunoa-mv-title scroll-animate animate-up">
     <span id="becas_hero_title_preview">
         <?php echo esc_html( get_theme_mod('becas_hero_title') ); ?>
     </span>
 </h1>
 
-<p class="nunoa-mv-subtitle">
+<p class="nunoa-mv-subtitle scroll-animate animate-left">
     <span id="becas_hero_subtitle_preview">
         <?php echo esc_html( get_theme_mod('becas_hero_subtitle') ); ?>
     </span>
@@ -343,13 +388,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
   <!-- Texto introductorio -->
   <div class="directorio-text-block">
-<h3>
+<h3 class="scroll-animate animate-up">
     <span id="becas_intro_title_preview">
         <?php echo esc_html( get_theme_mod('becas_intro_title') ); ?>
     </span>
 </h3>
 
-<p>
+<p class="scroll-animate animate-fade">
     <span id="becas_intro_text_preview">
         <?php echo wp_kses_post( get_theme_mod('becas_intro_text') ); ?>
     </span>
@@ -385,7 +430,7 @@ if ($query->have_posts()):
         // desde el 11 en adelante son "ver más"
         $extra_class = ($index > 10) ? 'nunoa-mv-card-additional' : '';
 ?>
-    <article class="nunoa-mv-card <?php echo $extra_class; ?>">
+<article class="nunoa-mv-card scroll-animate animate-up <?php echo $extra_class; ?>">
         <div class="nunoa-mv-icon"><?php echo esc_html($numero); ?></div>
         <div>
             <header class="nunoa-mv-card-header">
@@ -413,6 +458,39 @@ wp_reset_postdata();
     </div>
 
   </section>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    // Selecciona elementos que NO sean las tarjetas ocultas
+    const elementos = document.querySelectorAll(
+        ".scroll-animate:not(.nunoa-mv-card-additional)"
+    );
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("show");
+
+                    // Dejar de observar para no reanimar
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        {
+            // El 70% del elemento debe estar visible
+            threshold: 0.7,
+
+            // Evita activación temprana
+            rootMargin: "0px 0px -15% 0px"
+        }
+    );
+
+    elementos.forEach(el => observer.observe(el));
+
+});
+</script>
 
 </main>
 
