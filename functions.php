@@ -96,6 +96,19 @@ function nunoa_enqueue_faq_script() {
 add_action('wp_enqueue_scripts', 'nunoa_enqueue_faq_script');
 
 
+function enqueue_recintos_slider_script() {
+    // Asegúrate que Swiper esté cargado primero
+    wp_enqueue_script(
+        'recintos-slider',
+        get_template_directory_uri() . '/js/recintos-slider.js',
+        array(), // Sin dependencias si Swiper ya está cargado globalmente
+        filemtime(get_template_directory() . '/js/recintos-slider.js'), // Versión basada en fecha de modificación
+        true // Cargar en el footer
+    );
+}
+add_action('wp_enqueue_scripts', 'enqueue_recintos_slider_script');
+
+
 
 // ==========================================================
 // 💡 GLightbox para galería de noticias
