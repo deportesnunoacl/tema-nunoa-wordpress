@@ -500,6 +500,44 @@ get_header();
   height: 20px;
   stroke: currentColor;
 }
+
+/* --------------------- SCROLL ANIMATIONS ---------------------- */
+
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+  will-change: opacity, transform;
+}
+
+/* Subir */
+.animate-up { transform: translateY(40px); }
+.animate-up.show { transform: translateY(0); }
+
+/* Bajar */
+.animate-down { transform: translateY(-40px); }
+.animate-down.show { transform: translateY(0); }
+
+/* Izquierda */
+.animate-left { transform: translateX(-50px); }
+.animate-left.show { transform: translateX(0); }
+
+/* Derecha */
+.animate-right { transform: translateX(50px); }
+.animate-right.show { transform: translateX(0); }
+
+/* Zoom in */
+.animate-zoom-in { transform: scale(0.85); }
+.animate-zoom-in.show { transform: scale(1); }
+
+/* Fade puro */
+.animate-fade { transform: none; }
+
+/* Estado al aparecer */
+.scroll-animate.show {
+  opacity: 1;
+}
+
 </style>
 
 <main class="bg-white">
@@ -510,13 +548,13 @@ get_header();
 
   
   <div class="info-hero-inner">
-<h1 class="info-hero-title">
+<h1 class="info-hero-title scroll-animate animate-up">
     <span id="tv_hero_title_preview">
         <?php echo esc_html( get_theme_mod('tv_hero_title', 'Tarjeta Vecino') ); ?>
     </span>
 </h1>
 
-<p class="info-hero-subtitle">
+<p class="info-hero-subtitle scroll-animate animate-left">
     <span id="tv_hero_subtitle_preview">
         <?php echo esc_html( get_theme_mod('tv_hero_subtitle', 'Conoce nuestros beneficios y requisitos de la tarjeta vecino.') ); ?>
     </span>
@@ -530,7 +568,7 @@ get_header();
   <!-- TEXTO PRINCIPAL DINÁMICO -->
 <section class="info-wrapper">
 
-  <div class="info-content">
+<div class="info-content scroll-animate animate-fade">
     <?php 
       while ( have_posts() ) : the_post();
         the_content();
@@ -542,7 +580,7 @@ get_header();
 <div class="info-cards">
 
   <!-- REQUISITOS MEJORADO -->
-  <div class="info-card">
+<div class="info-card scroll-animate animate-right">
 <h4>
   <span id="tv_req_title_preview">
     <?php echo esc_html( get_theme_mod('tv_req_title', 'Requisitos') ); ?>
@@ -567,7 +605,7 @@ get_header();
   </div>
 
   <!-- BENEFICIOS -->
-  <div class="info-card">
+<div class="info-card scroll-animate animate-left">
 <h4>
   <span id="tv_ben_title_preview">
     <?php echo esc_html( get_theme_mod('tv_ben_title', 'Beneficios') ); ?>
@@ -594,7 +632,7 @@ get_header();
 </div>
 
 <!-- SECCIÓN CONSULTAR ESTADO -->
-<section class="consultar-estado">
+<section class="consultar-estado scroll-animate animate-zoom-in">
 <h3>
     <span id="tv_estado_title_preview">
         <?php echo esc_html( get_theme_mod('tv_estado_title', 'Consultar Estado de Tarjeta Vecino') ); ?>
@@ -641,5 +679,34 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const elementos = document.querySelectorAll(
+      ".scroll-animate"
+    );
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("show");
+
+                    // Evita múltiples animaciones
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        {
+            threshold: 0.6,        // 60% visible
+            rootMargin: "0px 0px -20% 0px" // No aparece demasiado temprano
+        }
+    );
+
+    elementos.forEach(el => observer.observe(el));
+});
+</script>
+
 
 <?php get_footer(); ?>
