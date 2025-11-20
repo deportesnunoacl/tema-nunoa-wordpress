@@ -42,3 +42,50 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  const recintosSwiper = new Swiper('.recintos-slider', {
+    slidesPerView: 3,
+    spaceBetween: 20,
+    centeredSlides: false,
+    
+    navigation: {
+      nextEl: '.swiper-btn-next',
+      prevEl: '.swiper-btn-prev',
+    },
+    
+    grabCursor: true,
+    
+    breakpoints: {
+      // Mobile
+      320: {
+        slidesPerView: 3,
+        spaceBetween: 15,
+      },
+      // Tablet
+      640: {
+        slidesPerView: 4,
+        spaceBetween: 20,
+      },
+      // Desktop pequeño
+      768: {
+        slidesPerView: 5,
+        spaceBetween: 25,
+      },
+      // Desktop
+      1024: {
+        slidesPerView: 6,
+        spaceBetween: 30,
+      },
+      // Desktop grande
+      1280: {
+        slidesPerView: 7,
+        spaceBetween: 35,
+      }
+    },
+    
+    loop: false,
+    freeMode: false,
+  });
+});
+

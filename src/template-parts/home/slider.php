@@ -1,5 +1,5 @@
 <div class="bg-white">
-  <div class="w-full max-w-[95%] mx-auto relative">
+  <div class="w-full max-w-[100%] mx-auto relative">
     <?php
       $slides = new WP_Query([
         'post_type'      => 'slider',
@@ -11,12 +11,12 @@
 
       if ($slides->have_posts()) :
     ?>
-    <div class="swiper mySwiper rounded-2xl overflow-hidden">
+    <div class="swiper mySwiper overflow-hidden">
       <div class="swiper-wrapper">
         <?php while ($slides->have_posts()) : $slides->the_post(); ?>
           <div class="swiper-slide relative">
             <?php if (has_post_thumbnail()) : ?>
-              <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>" class="w-full h-[200px] md:h-[700px] md:max-h-[700px] object-contain" />
+              <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>" class="w-full h-[200px] md:h-[465px] 2xl:h-[655px] object-contain" />
             <?php endif; ?>
 
            
@@ -29,7 +29,7 @@
     <?php endif; ?>
 
     <!-- Caja de Beneficios -->
-    <div class="bg-white hidden md:flex 2xl:px-20 md:px-10 absolute bottom-0 right-0 p-6 rounded-tl-[40px] z-20 flex-col items-center">
+    <!-- <div class="bg-white hidden md:flex 2xl:px-20 md:px-10 absolute bottom-0 right-0 p-6 rounded-tl-[40px] z-20 flex-col items-center">
       <h2 class="text-2xl mb-4 text-center font-gabarito">
         Accede a los beneficios 
         <span class="font-bold">que tenemos para ti</span>
@@ -44,6 +44,6 @@
           <span class="ml-2 text-base max-w-40 font-roboto">Juegos deportivos <span class="font-bold">Escolares Ñuñoa</span></span>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>

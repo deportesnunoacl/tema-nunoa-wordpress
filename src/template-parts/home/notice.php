@@ -11,7 +11,7 @@ $noticias = new WP_Query([
 ]);
 ?>
 
-<div class="w-full md:w-[90%]  h-min relative mx-auto rounded-3xl"
+<div class="w-full md:w-[90%]  h-min relative mx-auto rounded-3xl mt-10"
     style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/BgVerde.png'); background-size: cover; background-repeat: no-repeat;">
     
     <div class="w-full container mx-auto flex flex-col justify-between gap-5 relative h-min  p-5 md:px-0 py-20">
