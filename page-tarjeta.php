@@ -652,6 +652,7 @@ get_header();
     Consultar Ahora
   </a>
 </section>
+</main>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   // Seleccionar todos los botones "Ver más"
