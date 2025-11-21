@@ -170,6 +170,11 @@
         left: 10px;
     }
 }
+.wa__popup_avatar--white {
+    background: #fff;
+    padding: 6px;
+    border-radius: 50%;
+}
 
 
 </style>
@@ -182,9 +187,9 @@
     <div class="wa__btn_popup_txt">
     <span><?php echo get_theme_mod('nunoa_whatsapp_title', '¿Necesitas ayuda? Chatea con nosotros'); ?></span>
     </div>
-          <div class="wa__popup_avatar">
+          <div class="wa__popup_avatar wa__popup_avatar--white">
             <img 
-              src="https://talleres-municipales.s3.sa-east-1.amazonaws.com/iconos/tarjetavecino.png"
+              src="<?php echo get_template_directory_uri(); ?>/assets/img/wa.png"
               alt="Avatar Ñuñoa Deportes"
             />
           </div>
@@ -236,7 +241,10 @@
           class="wa__stt"
         >
           <div class="wa__popup_avatar">
-<img src="<?php echo get_theme_mod('nunoa_whatsapp_avatar', 'https://talleres-municipales.s3.sa-east-1.amazonaws.com/iconos/tarjetavecino.png'); ?>">
+            <img 
+              src="<?php echo get_template_directory_uri(); ?>/assets/img/Logowanunoa.png"
+              alt="Avatar Ñuñoa Deportes"
+            />
           </div>
 
           <div class="wa__popup_txt">
