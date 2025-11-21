@@ -13,8 +13,8 @@
 /* CONTENEDOR GENERAL */
 .wa__widget_container {
     position: fixed;
-    top: 170px; 
-    left: 20px;
+    bottom: 30px; 
+    right: 20px;
     z-index: 99999;
     font-family: "Roboto", sans-serif;
 }
