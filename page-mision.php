@@ -213,6 +213,25 @@ $banner_img = get_template_directory_uri() . '/assets/img/BgVerde.png';
       margin-top: -60px;
     }
   }
+  /* -------- Scroll Animations (versión estable) ---------- */
+.scroll-animate {
+  opacity: 1;
+  transform: none;
+  transition: all .9s ease;
+}
+
+.scroll-fade    { opacity: 0; }
+.scroll-up      { opacity: 0; transform: translateY(40px); }
+.scroll-down    { opacity: 0; transform: translateY(-40px); }
+.scroll-left    { opacity: 0; transform: translateX(-40px); }
+.scroll-right   { opacity: 0; transform: translateX(40px); }
+.scroll-zoom    { opacity: 0; transform: scale(.85); }
+
+.scroll-animate.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
 </style>
 
 <main class="nunoa-mv-main">
@@ -223,17 +242,17 @@ $banner_img = get_template_directory_uri() . '/assets/img/BgVerde.png';
 
 
     <div class="nunoa-mv-hero-inner">
-<div class="nunoa-mv-kicker" id="mv_kicker_preview">
+<div class="nunoa-mv-kicker scroll-animate scroll-up" id="mv_kicker_preview">
   <?php echo esc_html( get_theme_mod('mv_kicker', 'Nuestra identidad institucional') ); ?>
 </div>
 
-<h1 class="nunoa-mv-title">
+<h1 class="nunoa-mv-title scroll-animate scroll-left">
   <span id="mv_title_preview">
     <?php echo esc_html( get_theme_mod('mv_title', 'Misión & Visión') ); ?>
   </span>
 </h1>
 
-<p class="nunoa-mv-subtitle" id="mv_subtitle_preview">
+<p class="nunoa-mv-subtitle scroll-animate scroll-fade" id="mv_subtitle_preview">
   <?php echo esc_html( get_theme_mod('mv_subtitle', 'Nuestro propósito, nuestro compromiso y el horizonte que guía...') ); ?>
 </p>
 
@@ -242,7 +261,7 @@ $banner_img = get_template_directory_uri() . '/assets/img/BgVerde.png';
 
   <!-- Contenido Misión / Visión -->
   <section class="nunoa-mv-wrapper">
-<h2 class="nunoa-mv-section-title" id="mv_section_title_preview">
+<h2 class="nunoa-mv-section-title scroll-animate scroll-down" id="mv_section_title_preview">
   <?php echo esc_html( get_theme_mod('mv_section_title', 'Nuestro Propósito Institucional') ); ?>
 </h2>
 
@@ -250,7 +269,7 @@ $banner_img = get_template_directory_uri() . '/assets/img/BgVerde.png';
     <div class="nunoa-mv-cards">
 
       <!-- Misión -->
-      <article class="nunoa-mv-card">
+<article class="nunoa-mv-card scroll-animate scroll-left">
 <div class="nunoa-mv-icon">
   <?php echo wp_kses_post( get_theme_mod('mv_mision_icon', 'M') ); ?>
 </div>
@@ -274,10 +293,10 @@ $banner_img = get_template_directory_uri() . '/assets/img/BgVerde.png';
         </div>
       </article>
 
-      <hr class="nunoa-mv-divider">
+<hr class="nunoa-mv-divider scroll-animate scroll-zoom">
 
       <!-- Visión -->
-      <article class="nunoa-mv-card">
+<article class="nunoa-mv-card scroll-animate scroll-right">
 <div class="nunoa-mv-icon">
   <?php echo wp_kses_post( get_theme_mod('mv_vision_icon', 'V') ); ?>
 </div>
@@ -303,6 +322,29 @@ $banner_img = get_template_directory_uri() . '/assets/img/BgVerde.png';
 
     </div>
   </section>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const targets = document.querySelectorAll(".scroll-animate");
+
+  const observer = new IntersectionObserver(
+      (entries) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  entry.target.classList.add("is-visible");
+                  observer.unobserve(entry.target);
+              }
+          });
+      },
+      {
+          threshold: 0.38,
+          rootMargin: "0px 0px -12% 0px"
+      }
+  );
+
+  targets.forEach(el => observer.observe(el));
+});
+</script>
 
 </main>
 

@@ -145,6 +145,26 @@ get_header();
   padding: 6px 16px;
   border-radius: 999px;
 }
+
+/* ======== Scroll Animations – versión estable ======== */
+.scroll-animate {
+  opacity: 1;
+  transform: none;
+  transition: all .9s ease;
+}
+
+.scroll-fade    { opacity: 0; }
+.scroll-up      { opacity: 0; transform: translateY(40px); }
+.scroll-down    { opacity: 0; transform: translateY(-40px); }
+.scroll-left    { opacity: 0; transform: translateX(-40px); }
+.scroll-right   { opacity: 0; transform: translateX(40px); }
+.scroll-zoom    { opacity: 0; transform: scale(.85); }
+
+.scroll-animate.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
 </style>
 
 <main class="bg-white">
@@ -154,17 +174,17 @@ get_header();
  
 
   <div class="directorio-hero-inner">
-<div class="directorio-kicker" id="dir_kicker_preview">
+<div class="directorio-kicker scroll-animate scroll-up" id="dir_kicker_preview">
   <?php echo esc_html( get_theme_mod('dir_kicker', 'Corporación Municipal de Deportes') ); ?>
 </div>
 
 
-<h1 class="directorio-title" id="dir_title_preview">
+<h1 class="directorio-title scroll-animate scroll-left" id="dir_title_preview">
   <?php echo esc_html( get_theme_mod('dir_title', 'Directorio & Administración') ); ?>
 </h1>
 
 
-<p class="directorio-subtitle" id="dir_subtitle_preview">
+<p class="directorio-subtitle scroll-animate scroll-fade" id="dir_subtitle_preview">
   <?php echo esc_html( get_theme_mod('dir_subtitle', 
     'Conoce al equipo que lidera y guía el desarrollo del deporte en Ñuñoa.'
   ) ); ?>
@@ -179,13 +199,13 @@ get_header();
 
   <!-- Texto introductorio -->
   <div class="directorio-text-block">
-<h3 id="dir_intro_title_preview">
+<h3 class="scroll-animate scroll-down" id="dir_intro_title_preview">
   <?php echo esc_html( get_theme_mod('dir_intro_title', 
     'Directorio Corporación Municipal de Deportes de Ñuñoa'
   ) ); ?>
 </h3>
 
-<p id="dir_intro_text_preview">
+<p class="scroll-animate scroll-up" id="dir_intro_text_preview">
   <?php echo esc_html( get_theme_mod('dir_intro_text', 
     'Nuestro directorio está conformado por líderes comprometidos...'
   ) ); ?>
@@ -198,8 +218,7 @@ get_header();
 
 <?php for ($i = 1; $i <= 5; $i++): ?>
 
-  <div class="directorio-card">
-
+<div class="directorio-card scroll-animate scroll-<?php echo ($i % 2 == 0) ? 'right' : 'left'; ?>">
     <img src="<?php echo esc_url( get_theme_mod("dir_card{$i}_img") ); ?>" 
          alt="<?php echo esc_attr( get_theme_mod("dir_card{$i}_name") ); ?>">
 
@@ -216,6 +235,29 @@ get_header();
 <?php endfor; ?>
 
 </div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const targets = document.querySelectorAll(".scroll-animate");
+
+  const observer = new IntersectionObserver(
+      (entries) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  entry.target.classList.add("is-visible");
+                  observer.unobserve(entry.target);
+              }
+          });
+      },
+      {
+          threshold: 0.38,
+          rootMargin: "0px 0px -12% 0px"
+      }
+  );
+
+  targets.forEach(el => observer.observe(el));
+});
+</script>
 
 
 </main>
