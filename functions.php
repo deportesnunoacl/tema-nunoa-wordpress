@@ -216,7 +216,7 @@ add_action('customize_register', function() {
 // ==========================================================
 require_once get_template_directory() . '/inc/header/class-tailwind-navwalker.php';
 require_once get_template_directory() . '/inc/custom-post-types/Recintos.php';
-require_once get_template_directory() . '/inc/custom-post-types/Slider.php';
+
 // CUSTOMIZER
 require_once get_template_directory() . '/inc/customizer/offer/offer-customizer.php';
 require_once get_template_directory() . '/inc/customizer/noticias/noticias-customizer.php';
