@@ -275,3 +275,4 @@ require_once get_template_directory() . '/inc/customizer/mision-vision-customize
 require_once get_template_directory() . '/inc/customizer/directorio-customizer.php';
 require_once get_template_directory() . '/inc/customizer/disponibilidad-customizer.php';
 require_once get_template_directory() . '/inc/customizer/whatsapp-customizer.php';
+require_once get_template_directory() . '/inc/customizer/slider-customizer.php';

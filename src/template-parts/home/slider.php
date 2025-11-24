@@ -1,49 +1,56 @@
+<div id="home-slider-wrapper">   <!--  WRAPPER PARA SELECTIVE REFRESH -->
+
 <div class="bg-white">
   <div class="w-full max-w-[100%] mx-auto relative">
+
     <?php
-      $slides = new WP_Query([
-        'post_type'      => 'slider',
-        'posts_per_page' => -1,
-        'post_status'    => 'publish',
-        'orderby'        => 'menu_order',
-        'order'          => 'ASC',
-      ]);
+    // Cargar imágenes desde el customizer
+    $slides = [];
 
-      if ($slides->have_posts()) :
+    for ($i = 1; $i <= 3; $i++) {
+      $img = get_theme_mod("home_slide_img_$i");
+      $url = get_theme_mod("home_slide_url_$i", '#');
+
+      if ($img) {
+        $slides[] = [
+          'img' => $img,
+          'url' => $url
+        ];
+      }
+    }
     ?>
-    <div class="swiper mySwiper overflow-hidden">
-      <div class="swiper-wrapper">
-        <?php while ($slides->have_posts()) : $slides->the_post(); ?>
-          <div class="swiper-slide relative">
-            <?php if (has_post_thumbnail()) : ?>
-              <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>" class="w-full h-[200px] md:h-[465px] 2xl:h-[655px] object-contain" />
-            <?php endif; ?>
 
-           
-          </div>
-        <?php endwhile; wp_reset_postdata(); ?>
+    <?php if (!empty($slides)) : ?>
+
+      <div class="swiper mySwiper overflow-hidden">
+        <div class="swiper-wrapper">
+
+          <?php foreach ($slides as $slide): ?>
+            <div class="swiper-slide relative">
+
+              <a href="<?php echo esc_url($slide['url']); ?>">
+                <img 
+                  src="<?php echo esc_url($slide['img']); ?>" 
+                  alt="" 
+                  class="w-full h-[200px] md:h-[465px] 2xl:h-[655px] object-contain"
+                />
+              </a>
+
+            </div>
+          <?php endforeach; ?>
+
+        </div>
       </div>
-    </div>
-    <?php else : ?>
-      <p class="text-gray-600 text-center py-10">No hay slides disponibles aún.</p>
+
+    <?php else: ?>
+
+      <p class="text-gray-600 text-center py-10">
+        No hay slides configurados aún.
+      </p>
+
     <?php endif; ?>
 
-    <!-- Caja de Beneficios -->
-    <!-- <div class="bg-white hidden md:flex 2xl:px-20 md:px-10 absolute bottom-0 right-0 p-6 rounded-tl-[40px] z-20 flex-col items-center">
-      <h2 class="text-2xl mb-4 text-center font-gabarito">
-        Accede a los beneficios 
-        <span class="font-bold">que tenemos para ti</span>
-      </h2>
-      <div class="flex space-x-4">
-        <div class="border-primary border rounded-full p-4 flex items-center justify-between text-primary">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/Beneficio1.png" alt="Beneficio 1" class="w-12 h-12">
-          <span class="ml-2 text-base max-w-40 font-roboto">Accede al beneficio <span class="font-bold">Tarjeta Vecino</span></span>
-        </div>
-        <div class="border-primary border rounded-full p-4 flex items-center justify-between text-primary">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/Beneficio2.png" alt="Beneficio 2" class="w-12 h-12 rounded-full">
-          <span class="ml-2 text-base max-w-40 font-roboto">Juegos deportivos <span class="font-bold">Escolares Ñuñoa</span></span>
-        </div>
-      </div>
-    </div> -->
   </div>
+</div>
+
 </div>
