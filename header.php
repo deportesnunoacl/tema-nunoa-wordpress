@@ -71,23 +71,25 @@
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0px 5px 20px rgba(0,0,0,0.25);
-    border: 2px solid #3DAF6B; /* borde principal */
-    
-    /* Oculto inicialmente */
+    border: 2px solid #3DAF6B;
+
+    position: absolute;
+    bottom: 70px; /* popup aparece hacia arriba */
+    right: 0;
+
     display: none;
-    
-    /* Animación */
+
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(20px); /* aparece desde abajo hacia arriba */
     transition: opacity .3s ease, transform .3s ease;
 }
 
-/* Cuando se muestra (lo activamos por JS) */
 .wa__popup_chat_box.active {
     display: block;
     opacity: 1;
     transform: translateY(0);
 }
+
 
 /* HEADER DEL POPUP */
 .wa__popup_heading {
